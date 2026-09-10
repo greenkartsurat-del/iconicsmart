@@ -1698,24 +1698,14 @@ tr:last-child td {
     <!-- Account & Settings Popover Menu -->
     <div class="menu-popover hidden" id="profileMenu">
       <div class="popover-head">
-        <b id="menuUserName">Dhanesh Kaytha</b>
-        <small id="menuUserEmail">super@acme.test</small>
+        <b id="menuUserName">User Name</b>
+        <small id="menuUserEmail">user@acme.test</small>
+        <span class="badge open" id="menuUserRole" style="margin-top:6px;display:inline-block;">Role</span>
       </div>
       <div class="popover-divider"></div>
-      <div class="popover-section-label">SWITCH DEMO ROLE</div>
-      <button class="popover-item" onclick="switchRole('Master Admin')">👑 Master Admin (Platform)</button>
-      <button class="popover-item" onclick="switchRole('Super Admin')">🛡️ Super Admin (Enterprise)</button>
-      <button class="popover-item" onclick="switchRole('Admin')">🏢 Branch Admin</button>
-      <button class="popover-item" onclick="switchRole('Sales Team')">💼 Sales Team</button>
-      <button class="popover-item" onclick="switchRole('Technician')">🔧 Field Technician</button>
-      <div class="popover-divider"></div>
-      <div class="popover-section-label">DATA MANAGEMENT</div>
+      <button class="popover-item" onclick="openProfileModal()">👤 Account Profile</button>
+      <button class="popover-item" onclick="toggleTheme()">🌓 Toggle Dark / Light</button>
       <button class="popover-item" onclick="exportDataBackup()">💾 Export Backup (JSON)</button>
-      <label class="popover-item" style="cursor:pointer;">
-        📥 Import Backup (JSON)
-        <input type="file" id="importJsonInput" accept=".json" style="display:none;" onchange="importDataBackup(event)">
-      </label>
-      <button class="popover-item text-danger" onclick="resetDemoData()">🔄 Reset Demo Data</button>
       <div class="popover-divider"></div>
       <button class="popover-item text-danger" onclick="logout()">⇥ Sign Out</button>
     </div>
@@ -4220,9 +4210,7 @@ function renderCmdResults(query) {
     { title: 'Add Dealer / Partner', icon: '＋', tag: 'Action', run: () => { hideCommandPalette(); openForm('dealer'); } },
     { title: 'Stock Inward / Outward', icon: '＋', tag: 'Action', run: () => { hideCommandPalette(); openForm('stock'); } },
     { title: 'Toggle Dark / Light Theme', icon: '◐', tag: 'Preferences', run: () => { hideCommandPalette(); toggleTheme(); } },
-    { title: 'Switch to Technician Workspace', icon: '🔧', tag: 'Role', run: () => { hideCommandPalette(); switchRole('Technician'); } },
-    { title: 'Switch to Sales Workspace', icon: '💼', tag: 'Role', run: () => { hideCommandPalette(); switchRole('Sales Team'); } },
-    { title: 'Switch to Super Admin Workspace', icon: '🛡️', tag: 'Role', run: () => { hideCommandPalette(); switchRole('Super Admin'); } }
+    { title: 'View My Account Profile', icon: '👤', tag: 'Account', run: () => { hideCommandPalette(); openProfileModal(); } }
   ];
 
   const matchedActions = actions.filter(a => a.title.toLowerCase().includes(q));
@@ -4308,9 +4296,38 @@ function executeCmdAction(title) {
   else if (title === 'Add Dealer / Partner') openForm('dealer');
   else if (title === 'Stock Inward / Outward') openForm('stock');
   else if (title === 'Toggle Dark / Light Theme') toggleTheme();
-  else if (title.includes('Technician')) switchRole('Technician');
-  else if (title.includes('Sales')) switchRole('Sales Team');
-  else if (title.includes('Super Admin')) switchRole('Super Admin');
+  else if (title === 'View My Account Profile') openProfileModal();
+}
+
+function openProfileModal() {
+  hidePopoverMenu();
+  const uName = state.currentUser ? state.currentUser.name : state.role;
+  const uEmail = state.currentUser ? state.currentUser.email : (state.role === 'Master Admin' ? 'master@orbito.test' : '');
+  const orgName = state.role === 'Master Admin' ? 'Orbito Cloud' : 'Acme India';
+  const content = document.querySelector('#modalContent');
+  content.innerHTML = `
+    <h2>👤 User Account Profile</h2>
+    <p>Your authenticated session details and organizational credentials.</p>
+    <div style="background:var(--line-light);padding:18px;border-radius:var(--radius);margin-bottom:20px;">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
+        <span class="avatar" style="width:48px;height:48px;font-size:16px;">${uName.split(' ').map(x => x[0]).join('').slice(0, 2)}</span>
+        <div>
+          <b style="font-size:16px;display:block;">${uName}</b>
+          <span style="color:var(--muted);font-size:13px;">${uEmail}</span>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:12px;border-top:1px solid var(--line);padding-top:12px;">
+        <div><b>Assigned Role:</b> <span class="badge open" style="margin-left:4px;">${state.role}</span></div>
+        <div><b>Session Status:</b> <span class="badge resolved" style="margin-left:4px;">Active (Authenticated)</span></div>
+        <div><b>Organization:</b> ${orgName}</div>
+        <div><b>2FA Security:</b> <span style="color:var(--green);font-weight:700;">Enforced</span></div>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="primary-btn" onclick="hideModal()">Close</button>
+    </div>
+  `;
+  showModal();
 }
 
 // Notifications Panel
@@ -4451,8 +4468,16 @@ function render() {
   // Update profile label
   document.querySelector('#roleLabel').textContent = state.role;
   const uName = state.currentUser ? state.currentUser.name : state.role;
+  const uEmail = state.currentUser ? state.currentUser.email : '';
   document.querySelector('#userName').textContent = uName;
   document.querySelector('#userAvatar').textContent = uName.split(' ').map(x => x[0]).join('').slice(0, 2);
+
+  const menuUName = document.querySelector('#menuUserName');
+  const menuUEmail = document.querySelector('#menuUserEmail');
+  const menuURole = document.querySelector('#menuUserRole');
+  if (menuUName) menuUName.textContent = uName;
+  if (menuUEmail) menuUEmail.textContent = uEmail;
+  if (menuURole) menuURole.textContent = state.role;
 
   // Render navigation
   nav();
@@ -4615,6 +4640,8 @@ window.handleDrop = handleDrop;
 window.executeCmdAction = executeCmdAction;
 window.hideModal = hideModal;
 window.hideCommandPalette = hideCommandPalette;
+window.openProfileModal = openProfileModal;
+window.toggleTheme = toggleTheme;
 
 
 
@@ -4991,6 +5018,13 @@ function renderMaster() {
   if (wsDesc) wsDesc.textContent = 'Multi-tenant control plane';
   if (wsAvatar) wsAvatar.textContent = 'OC';
 
+  const menuUName = document.querySelector('#menuUserName');
+  const menuUEmail = document.querySelector('#menuUserEmail');
+  const menuURole = document.querySelector('#menuUserRole');
+  if (menuUName) menuUName.textContent = 'Master Admin';
+  if (menuUEmail) menuUEmail.textContent = 'master@orbito.test';
+  if (menuURole) menuURole.textContent = 'Master Admin';
+
   const navItems = ['Platform Overview', 'Companies', 'Platform Analytics', 'Subscriptions', 'Platform Users', 'Audit Logs'];
   const navIcons = ['⌂', '▣', '◒', '◈', '♙', '◷'];
 
@@ -5002,8 +5036,6 @@ function renderMaster() {
         <span>${item}</span>
       </button>
     `).join('')}
-    <div class="nav-group">WORKSPACE SWITCH</div>
-    <button class="nav-item" onclick="switchRole('Super Admin')"><span class="nav-icon">🛡️</span>Enter Acme India CRM</button>
     <div class="nav-group">ACCOUNT</div>
     <button class="nav-item" onclick="platformSignOut()"><span class="nav-icon">⇥</span>Sign out</button>
   `;
