@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orbito CRM</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section class="login-view" id="loginView">
+      <div class="login-intro"><div class="brand"><span class="brand-mark">O</span><span>orbito<span class="brand-dot">.</span></span></div><div class="intro-copy"><p class="eyebrow">Service & sales intelligence</p><h1>One trusted place<br>for every customer.</h1><p>Manage sales, service, dealers, and inventory with secure, role-based access.</p></div><div class="login-stat"><b>4 role-specific workspaces</b><span>Every view is scoped to the job at hand.</span></div></div>
+      <div class="login-panel"><div class="login-box"><p class="eyebrow">Welcome back</p><h2>Sign in to Orbito</h2><p class="login-sub">Use one of the demo accounts below to explore the CRM.</p><form id="loginForm"><div class="field"><label>Email address</label><input id="loginEmail" type="email" placeholder="name@acme.test" required></div><div class="field"><label>Password</label><input id="loginPassword" type="password" placeholder="Enter your password" required></div><p class="login-error hidden" id="loginError">That email and password do not match a demo account.</p><button class="login-btn" type="submit">Sign in <span>→</span></button></form><div class="demo-accounts"><p>DEMO ACCOUNTS</p><button data-email="super@acme.test" data-pass="SuperAdmin@123"><b>Super Admin</b><span>super@acme.test</span></button><button data-email="admin@acme.test" data-pass="Admin@123"><b>Admin</b><span>admin@acme.test</span></button><button data-email="sales@acme.test" data-pass="Sales@123"><b>Sales Team</b><span>sales@acme.test</span></button><button data-email="tech@acme.test" data-pass="Tech@123"><b>Technician</b><span>tech@acme.test</span></button></div></div></div>
+    </section>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand"><span class="brand-mark">O</span><span>orbito<span class="brand-dot">.</span></span></div>
+        <div class="workspace"><span class="avatar sm">AK</span><span><b>Acme India</b><small>Enterprise workspace</small></span><span class="chev">⌄</span></div>
+        <nav id="nav"></nav>
+        <div class="sidebar-bottom"><button class="help">◌&nbsp; Help center</button><div class="profile"><span class="avatar">DK</span><span><b>Dhanesh Kaytha</b><small id="roleLabel">Super Admin</small></span><button class="more">•••</button></div></div>
+      </aside>
+      <main>
+        <header><button class="icon-btn mobile-menu" id="menuBtn">☰</button><div class="search">⌕ <input placeholder="Search tickets, leads, dealers…" /><kbd>⌘ K</kbd></div><div class="header-actions"><button class="icon-btn" id="themeBtn" title="Toggle theme">◐</button><button class="icon-btn notification">♢<i></i></button><button class="new-btn" id="newBtn">＋ <span>New</span></button></div></header>
+        <section class="page" id="page"></section>
+      </main>
+    </div>
+    <div class="modal-wrap hidden" id="modal"><div class="modal"><button class="close" id="closeModal">×</button><div id="modalContent"></div></div></div>
+    <script src="app.js"></script>
+    <script src="master.js"></script>
+  </body>
+</html>
