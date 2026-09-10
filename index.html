@@ -225,56 +225,6 @@ h1, h2, h3, h4, h5, b {
   font-weight: 500;
 }
 
-.demo-accounts {
-  margin-top: 28px;
-  border-top: 1px solid var(--line);
-  padding-top: 20px;
-}
-.demo-accounts > p {
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.8px;
-  color: var(--muted);
-  margin-bottom: 12px;
-}
-.demo-btn {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 12px;
-  margin-bottom: 8px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  cursor: pointer;
-  text-align: left;
-  color: var(--ink);
-  transition: all 0.15s ease;
-}
-.demo-btn:hover {
-  border-color: var(--blue);
-  background: var(--blue-light);
-  transform: translateY(-1px);
-}
-.demo-btn b {
-  display: block;
-  font-size: 12px;
-  font-weight: 700;
-}
-.demo-btn small {
-  font-size: 11px;
-  color: var(--muted);
-}
-.demo-tag {
-  font-size: 10px;
-  font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 20px;
-  background: var(--blue-light);
-  color: var(--blue);
-}
-
 /* =========================================================
    APP SHELL & LAYOUT
    ========================================================= */
@@ -1627,7 +1577,7 @@ tr:last-child td {
           <p>Seamlessly manage complaints, sales pipelines, dealer networks, inventory, and cross-branch operations with secure role-based access.</p>
         </div>
         <div class="login-stat">
-          <b>5 Role-Specific Workspaces & Multi-Tenant Control</b>
+          <b>Enterprise Role-Specific Workspaces & Multi-Tenant Control</b>
           <span>Fully operational client-side & online. Persisted in your browser.</span>
         </div>
       </div>
@@ -1639,7 +1589,7 @@ tr:last-child td {
           </div>
           <p class="eyebrow">Welcome back</p>
           <h2>Sign in to Orbito</h2>
-          <p class="login-sub">Click any demo account below to instantly explore the fully operational workspace.</p>
+          <p class="login-sub">Enter your email address and password to access your workspace.</p>
           <form id="loginForm">
             <div class="field">
               <label for="loginEmail">Email address</label>
@@ -1649,32 +1599,9 @@ tr:last-child td {
               <label for="loginPassword">Password</label>
               <input id="loginPassword" type="password" placeholder="Enter your password" required autocomplete="current-password" />
             </div>
-            <p class="login-error hidden" id="loginError">Invalid credentials. Please use one of the demo accounts below.</p>
+            <p class="login-error hidden" id="loginError">Invalid email or password. Please check your credentials.</p>
             <button class="login-btn" type="submit">Sign in <span>→</span></button>
           </form>
-          <div class="demo-accounts">
-            <p>INSTANT DEMO LOGINS (1-CLICK)</p>
-            <button type="button" data-email="master@orbito.test" data-pass="Master@123" class="demo-btn">
-              <div><b>Master Admin</b><small>master@orbito.test</small></div>
-              <span class="demo-tag">Platform Control</span>
-            </button>
-            <button type="button" data-email="super@acme.test" data-pass="SuperAdmin@123" class="demo-btn">
-              <div><b>Super Admin</b><small>super@acme.test</small></div>
-              <span class="demo-tag">Full Enterprise</span>
-            </button>
-            <button type="button" data-email="admin@acme.test" data-pass="Admin@123" class="demo-btn">
-              <div><b>Branch Admin</b><small>admin@acme.test</small></div>
-              <span class="demo-tag">Operations</span>
-            </button>
-            <button type="button" data-email="sales@acme.test" data-pass="Sales@123" class="demo-btn">
-              <div><b>Sales Team</b><small>sales@acme.test</small></div>
-              <span class="demo-tag">Pipeline & Leads</span>
-            </button>
-            <button type="button" data-email="tech@acme.test" data-pass="Tech@123" class="demo-btn">
-              <div><b>Field Technician</b><small>tech@acme.test</small></div>
-              <span class="demo-tag">Service Route</span>
-            </button>
-          </div>
         </div>
       </div>
     </section>
