@@ -3,27 +3,196 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Orbito CRM</title>
+    <title>Orbito CRM — Enterprise Service & Sales Platform</title>
+    <meta name="description" content="Production-ready multi-tenant CRM for service, sales, dealers, and inventory management." />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   </head>
   <body>
+    <!-- Login View -->
     <section class="login-view" id="loginView">
-      <div class="login-intro"><div class="brand"><span class="brand-mark">O</span><span>orbito<span class="brand-dot">.</span></span></div><div class="intro-copy"><p class="eyebrow">Service & sales intelligence</p><h1>One trusted place<br>for every customer.</h1><p>Manage sales, service, dealers, and inventory with secure, role-based access.</p></div><div class="login-stat"><b>4 role-specific workspaces</b><span>Every view is scoped to the job at hand.</span></div></div>
-      <div class="login-panel"><div class="login-box"><p class="eyebrow">Welcome back</p><h2>Sign in to Orbito</h2><p class="login-sub">Use one of the demo accounts below to explore the CRM.</p><form id="loginForm"><div class="field"><label>Email address</label><input id="loginEmail" type="email" placeholder="name@acme.test" required></div><div class="field"><label>Password</label><input id="loginPassword" type="password" placeholder="Enter your password" required></div><p class="login-error hidden" id="loginError">That email and password do not match a demo account.</p><button class="login-btn" type="submit">Sign in <span>→</span></button></form><div class="demo-accounts"><p>DEMO ACCOUNTS</p><button data-email="super@acme.test" data-pass="SuperAdmin@123"><b>Super Admin</b><span>super@acme.test</span></button><button data-email="admin@acme.test" data-pass="Admin@123"><b>Admin</b><span>admin@acme.test</span></button><button data-email="sales@acme.test" data-pass="Sales@123"><b>Sales Team</b><span>sales@acme.test</span></button><button data-email="tech@acme.test" data-pass="Tech@123"><b>Technician</b><span>tech@acme.test</span></button></div></div></div>
+      <div class="login-intro">
+        <div class="brand">
+          <span class="brand-mark">O</span>
+          <span>orbito<span class="brand-dot">.</span></span>
+        </div>
+        <div class="intro-copy">
+          <p class="eyebrow">Service & Sales Intelligence</p>
+          <h1>One trusted place<br>for every customer.</h1>
+          <p>Seamlessly manage complaints, sales pipelines, dealer networks, inventory, and cross-branch operations with secure role-based access.</p>
+        </div>
+        <div class="login-stat">
+          <b>5 Role-Specific Workspaces & Multi-Tenant Control</b>
+          <span>Fully operational client-side & online. Persisted in your browser.</span>
+        </div>
+      </div>
+      <div class="login-panel">
+        <div class="login-box">
+          <div class="mobile-brand-header">
+            <span class="brand-mark">O</span>
+            <b>orbito<span>.</span></b>
+          </div>
+          <p class="eyebrow">Welcome back</p>
+          <h2>Sign in to Orbito</h2>
+          <p class="login-sub">Click any demo account below to instantly explore the fully operational workspace.</p>
+          <form id="loginForm">
+            <div class="field">
+              <label for="loginEmail">Email address</label>
+              <input id="loginEmail" type="email" placeholder="name@acme.test" required autocomplete="username" />
+            </div>
+            <div class="field">
+              <label for="loginPassword">Password</label>
+              <input id="loginPassword" type="password" placeholder="Enter your password" required autocomplete="current-password" />
+            </div>
+            <p class="login-error hidden" id="loginError">Invalid credentials. Please use one of the demo accounts below.</p>
+            <button class="login-btn" type="submit">Sign in <span>→</span></button>
+          </form>
+          <div class="demo-accounts">
+            <p>INSTANT DEMO LOGINS (1-CLICK)</p>
+            <button type="button" data-email="master@orbito.test" data-pass="Master@123" class="demo-btn">
+              <div><b>Master Admin</b><small>master@orbito.test</small></div>
+              <span class="demo-tag">Platform Control</span>
+            </button>
+            <button type="button" data-email="super@acme.test" data-pass="SuperAdmin@123" class="demo-btn">
+              <div><b>Super Admin</b><small>super@acme.test</small></div>
+              <span class="demo-tag">Full Enterprise</span>
+            </button>
+            <button type="button" data-email="admin@acme.test" data-pass="Admin@123" class="demo-btn">
+              <div><b>Branch Admin</b><small>admin@acme.test</small></div>
+              <span class="demo-tag">Operations</span>
+            </button>
+            <button type="button" data-email="sales@acme.test" data-pass="Sales@123" class="demo-btn">
+              <div><b>Sales Team</b><small>sales@acme.test</small></div>
+              <span class="demo-tag">Pipeline & Leads</span>
+            </button>
+            <button type="button" data-email="tech@acme.test" data-pass="Tech@123" class="demo-btn">
+              <div><b>Field Technician</b><small>tech@acme.test</small></div>
+              <span class="demo-tag">Service Route</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </section>
-    <div class="app-shell">
+
+    <!-- App Shell -->
+    <div class="app-shell hidden" id="appShell">
+      <!-- Sidebar -->
       <aside class="sidebar" id="sidebar">
-        <div class="brand"><span class="brand-mark">O</span><span>orbito<span class="brand-dot">.</span></span></div>
-        <div class="workspace"><span class="avatar sm">AK</span><span><b>Acme India</b><small>Enterprise workspace</small></span><span class="chev">⌄</span></div>
+        <div class="brand">
+          <span class="brand-mark">O</span>
+          <span>orbito<span class="brand-dot">.</span></span>
+        </div>
+        <div class="workspace-card" id="workspaceBtn" title="Current Workspace">
+          <span class="avatar sm" id="workspaceAvatar">AK</span>
+          <div class="ws-info">
+            <b id="workspaceName">Acme India</b>
+            <small id="workspaceDesc">Enterprise workspace</small>
+          </div>
+        </div>
         <nav id="nav"></nav>
-        <div class="sidebar-bottom"><button class="help">◌&nbsp; Help center</button><div class="profile"><span class="avatar">DK</span><span><b>Dhanesh Kaytha</b><small id="roleLabel">Super Admin</small></span><button class="more">•••</button></div></div>
+        <div class="sidebar-bottom">
+          <button class="help-btn" id="helpBtn">
+            <span class="nav-icon">💡</span> Help & Shortcuts
+          </button>
+          <div class="profile-card" id="profileBtn" title="Account & Role Settings">
+            <span class="avatar" id="userAvatar">DK</span>
+            <div class="profile-info">
+              <b id="userName">Dhanesh Kaytha</b>
+              <small id="roleLabel">Super Admin</small>
+            </div>
+            <button class="more-btn" type="button" aria-label="Account menu">•••</button>
+          </div>
+        </div>
       </aside>
+
+      <!-- Main Content -->
       <main>
-        <header><button class="icon-btn mobile-menu" id="menuBtn">☰</button><div class="search">⌕ <input placeholder="Search tickets, leads, dealers…" /><kbd>⌘ K</kbd></div><div class="header-actions"><button class="icon-btn" id="themeBtn" title="Toggle theme">◐</button><button class="icon-btn notification">♢<i></i></button><button class="new-btn" id="newBtn">＋ <span>New</span></button></div></header>
+        <header>
+          <button class="icon-btn mobile-menu" id="menuBtn" title="Toggle navigation">☰</button>
+          
+          <div class="search-bar" id="globalSearchBtn" title="Search or jump (Ctrl+K)">
+            <span class="search-icon">⌕</span>
+            <input type="text" placeholder="Search tickets, leads, dealers, SKUs… (Ctrl+K)" readonly />
+            <kbd>⌘ K</kbd>
+          </div>
+
+          <div class="header-actions">
+            <button class="icon-btn" id="themeBtn" title="Toggle Dark / Light Theme">◐</button>
+            
+            <div class="notif-wrapper">
+              <button class="icon-btn notification" id="notifBtn" title="Notifications">
+                <span>🔔</span>
+                <i class="notif-badge hidden" id="notifBadge"></i>
+              </button>
+              <div class="notif-menu hidden" id="notifMenu">
+                <div class="notif-head">
+                  <b>Notifications</b>
+                  <button class="text-btn" id="markAllReadBtn">Mark all read</button>
+                </div>
+                <div class="notif-list" id="notifList"></div>
+              </div>
+            </div>
+
+            <button class="new-btn" id="newBtn">
+              <span>＋</span> <span>New</span>
+            </button>
+          </div>
+        </header>
+
         <section class="page" id="page"></section>
       </main>
     </div>
-    <div class="modal-wrap hidden" id="modal"><div class="modal"><button class="close" id="closeModal">×</button><div id="modalContent"></div></div></div>
+
+    <!-- Generic Modal Dialog -->
+    <div class="modal-wrap hidden" id="modal">
+      <div class="modal" id="modalBox">
+        <button class="close-btn" id="closeModal" aria-label="Close modal">×</button>
+        <div id="modalContent"></div>
+      </div>
+    </div>
+
+    <!-- Command Palette (Ctrl+K) -->
+    <div class="modal-wrap hidden" id="cmdPalette">
+      <div class="cmd-palette-box">
+        <div class="cmd-input-wrap">
+          <span class="cmd-icon">⌕</span>
+          <input id="cmdSearchInput" type="text" placeholder="Type a command, customer, ticket ID, lead, or SKU..." autocomplete="off" />
+          <kbd>ESC</kbd>
+        </div>
+        <div class="cmd-results" id="cmdResults"></div>
+      </div>
+    </div>
+
+    <!-- Account & Settings Popover Menu -->
+    <div class="menu-popover hidden" id="profileMenu">
+      <div class="popover-head">
+        <b id="menuUserName">Dhanesh Kaytha</b>
+        <small id="menuUserEmail">super@acme.test</small>
+      </div>
+      <div class="popover-divider"></div>
+      <div class="popover-section-label">SWITCH DEMO ROLE</div>
+      <button class="popover-item" onclick="switchRole('Master Admin')">👑 Master Admin (Platform)</button>
+      <button class="popover-item" onclick="switchRole('Super Admin')">🛡️ Super Admin (Enterprise)</button>
+      <button class="popover-item" onclick="switchRole('Admin')">🏢 Branch Admin</button>
+      <button class="popover-item" onclick="switchRole('Sales Team')">💼 Sales Team</button>
+      <button class="popover-item" onclick="switchRole('Technician')">🔧 Field Technician</button>
+      <div class="popover-divider"></div>
+      <div class="popover-section-label">DATA MANAGEMENT</div>
+      <button class="popover-item" onclick="exportDataBackup()">💾 Export Backup (JSON)</button>
+      <label class="popover-item" style="cursor:pointer;">
+        📥 Import Backup (JSON)
+        <input type="file" id="importJsonInput" accept=".json" style="display:none;" onchange="importDataBackup(event)">
+      </label>
+      <button class="popover-item text-danger" onclick="resetDemoData()">🔄 Reset Demo Data</button>
+      <div class="popover-divider"></div>
+      <button class="popover-item text-danger" onclick="logout()">⇥ Sign Out</button>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
     <script src="app.js"></script>
     <script src="master.js"></script>
   </body>
