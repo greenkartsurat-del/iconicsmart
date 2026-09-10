@@ -9,6 +9,1609 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+/* Orbito CRM v2.0 - Enterprise Design System */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --navy: #0f2a49;
+  --blue: #1b63b9;
+  --blue-hover: #154e93;
+  --blue-light: #eef5fc;
+  --blue-subtle: #d8e9fa;
+  --ink: #10233d;
+  --ink-secondary: #334e68;
+  --muted: #627d98;
+  --line: #e2e8f0;
+  --line-light: #f1f5f9;
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-hover: #f1f5f9;
+  --green: #10b981;
+  --green-bg: #ecfdf5;
+  --green-text: #065f46;
+  --orange: #f59e0b;
+  --orange-bg: #fffbeb;
+  --orange-text: #92400e;
+  --red: #ef4444;
+  --red-bg: #fef2f2;
+  --red-text: #991b1b;
+  --purple: #8b5cf6;
+  --purple-bg: #f5f3ff;
+  --purple-text: #5b21b6;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 4px 12px rgba(15, 42, 73, 0.06), 0 1px 2px rgba(15, 42, 73, 0.04);
+  --shadow-lg: 0 20px 25px -5px rgba(15, 42, 73, 0.1), 0 10px 10px -5px rgba(15, 42, 73, 0.04);
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+}
+
+body.dark {
+  --bg: #0b1320;
+  --surface: #131f33;
+  --surface-hover: #1c2b45;
+  --ink: #f1f5f9;
+  --ink-secondary: #cbd5e1;
+  --muted: #94a3b8;
+  --navy: #f8fafc;
+  --line: #223249;
+  --line-light: #182538;
+  --blue-light: #172a45;
+  --blue-subtle: #1e385c;
+  --green-bg: #064e3b;
+  --green-text: #a7f3d0;
+  --orange-bg: #451a03;
+  --orange-text: #fde68a;
+  --red-bg: #450a0a;
+  --red-text: #fecaca;
+  --purple-bg: #2e1065;
+  --purple-text: #ddd6fe;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 20px 35px rgba(0, 0, 0, 0.55);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font: 14px/1.5 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* Typography Helpers */
+h1, h2, h3, h4, h5, b {
+  font-family: 'Manrope', 'DM Sans', sans-serif;
+}
+.eyebrow {
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.subtitle {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 4px;
+}
+.hidden {
+  display: none !important;
+}
+
+/* =========================================================
+   LOGIN SCREEN
+   ========================================================= */
+.login-view {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  background: var(--surface);
+}
+.login-intro {
+  background: linear-gradient(135deg, #091a2e 0%, #102b4a 60%, #194675 100%);
+  color: #fff;
+  padding: 40px clamp(30px, 7vw, 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+.login-intro::after {
+  content: '';
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(27, 99, 185, 0.3) 0%, transparent 70%);
+  pointer-events: none;
+}
+.login-intro .brand {
+  color: #fff;
+  padding: 0;
+}
+.intro-copy {
+  margin: 40px 0;
+}
+.intro-copy h1 {
+  font: 800 clamp(32px, 3.8vw, 54px)/1.15 'Manrope', sans-serif;
+  letter-spacing: -1.8px;
+  margin: 14px 0 18px;
+}
+.intro-copy p:last-child {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #c9dbed;
+  max-width: 480px;
+}
+.login-intro .eyebrow {
+  color: #7cc0f7;
+}
+.login-stat {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.login-stat b {
+  font: 600 13px 'Manrope', sans-serif;
+  color: #f1f5f9;
+}
+.login-stat span {
+  font-size: 12px;
+  color: #9bbcdb;
+}
+
+.login-panel {
+  display: grid;
+  place-items: center;
+  padding: 40px 30px;
+  overflow-y: auto;
+}
+.login-box {
+  width: min(420px, 100%);
+}
+.mobile-brand-header {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  font: 800 24px 'Manrope', sans-serif;
+  color: var(--navy);
+  margin-bottom: 24px;
+}
+.login-box h2 {
+  font: 800 28px 'Manrope', sans-serif;
+  letter-spacing: -0.8px;
+  margin: 4px 0 6px;
+}
+.login-sub {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+.login-btn {
+  width: 100%;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: var(--blue);
+  color: #fff;
+  font: 700 14px 'DM Sans', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.15s ease;
+}
+.login-btn:hover {
+  background: var(--blue-hover);
+}
+.login-error {
+  font-size: 12px;
+  color: var(--red);
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+.demo-accounts {
+  margin-top: 28px;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+}
+.demo-accounts > p {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.demo-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-align: left;
+  color: var(--ink);
+  transition: all 0.15s ease;
+}
+.demo-btn:hover {
+  border-color: var(--blue);
+  background: var(--blue-light);
+  transform: translateY(-1px);
+}
+.demo-btn b {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+}
+.demo-btn small {
+  font-size: 11px;
+  color: var(--muted);
+}
+.demo-tag {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 20px;
+  background: var(--blue-light);
+  color: var(--blue);
+}
+
+/* =========================================================
+   APP SHELL & LAYOUT
+   ========================================================= */
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+.sidebar {
+  width: 260px;
+  background: var(--surface);
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  z-index: 10;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.brand {
+  font: 800 24px 'Manrope', sans-serif;
+  padding: 24px 22px 18px;
+  color: var(--navy);
+  letter-spacing: -1.2px;
+  display: flex;
+  align-items: center;
+}
+.brand-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  background: var(--blue);
+  color: #fff;
+  border-radius: 9px;
+  margin-right: 8px;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+.brand-dot {
+  color: #38bdf8;
+}
+
+.workspace-card {
+  margin: 0 14px 18px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  cursor: default;
+}
+.ws-info {
+  flex: 1;
+  overflow: hidden;
+}
+.ws-info b {
+  display: block;
+  font-size: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.ws-info small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+nav {
+  padding: 0 12px;
+  overflow-y: auto;
+  flex: 1;
+}
+.nav-group {
+  margin: 16px 10px 6px;
+  font-size: 10px;
+  letter-spacing: 0.9px;
+  font-weight: 800;
+  color: var(--muted);
+}
+.nav-item {
+  border: 0;
+  background: transparent;
+  color: var(--ink-secondary);
+  width: 100%;
+  text-align: left;
+  border-radius: var(--radius-sm);
+  padding: 9px 12px;
+  margin: 2px 0;
+  font: 600 13px 'DM Sans', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.15s ease;
+}
+.nav-item .nav-icon {
+  font-size: 16px;
+  width: 18px;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+}
+.nav-item:hover {
+  background: var(--surface-hover);
+  color: var(--ink);
+}
+.nav-item.active {
+  background: var(--blue-light);
+  color: var(--blue);
+  font-weight: 700;
+}
+.nav-item .badge-count {
+  margin-left: auto;
+  font-size: 10px;
+  padding: 2px 6px;
+  background: var(--blue-subtle);
+  color: var(--blue);
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  border-top: 1px solid var(--line);
+  padding: 12px 14px;
+}
+.help-btn {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: 600 12px 'DM Sans', sans-serif;
+  padding: 8px 10px;
+  width: 100%;
+  text-align: left;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.help-btn:hover {
+  background: var(--surface-hover);
+  color: var(--ink);
+}
+
+.profile-card {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.profile-card:hover {
+  background: var(--surface-hover);
+}
+.profile-info {
+  flex: 1;
+  overflow: hidden;
+}
+.profile-info b {
+  font-size: 12px;
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.profile-info small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+}
+.avatar {
+  border-radius: 50%;
+  background: #dbeafe;
+  color: var(--blue);
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.avatar.sm {
+  width: 28px;
+  height: 28px;
+  background: #ffedd5;
+  color: #c2410c;
+  font-size: 10px;
+}
+.more-btn {
+  background: none;
+  border: 0;
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* =========================================================
+   MAIN HEADER
+   ========================================================= */
+main {
+  margin-left: 260px;
+  width: calc(100% - 260px);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+header {
+  height: 68px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.search-bar {
+  height: 38px;
+  width: min(440px, 45vw);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  padding: 0 12px;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+.search-bar:hover {
+  border-color: var(--blue);
+}
+.search-icon {
+  font-size: 14px;
+  color: var(--muted);
+}
+.search-bar input {
+  border: 0;
+  outline: 0;
+  font: 13px 'DM Sans', sans-serif;
+  width: 100%;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+kbd {
+  font: 10px 'DM Sans', sans-serif;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--muted);
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.icon-btn {
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ink-secondary);
+  font-size: 17px;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.15s ease;
+}
+.icon-btn:hover {
+  background: var(--surface-hover);
+  color: var(--ink);
+}
+.icon-btn.notification {
+  font-size: 15px;
+}
+.notif-badge {
+  background: var(--red);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  border: 2px solid var(--surface);
+}
+.new-btn {
+  background: var(--blue);
+  color: #fff;
+  border: 0;
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  font: 700 13px 'DM Sans', sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: var(--shadow-sm);
+  transition: background 0.15s ease;
+}
+.new-btn:hover {
+  background: var(--blue-hover);
+}
+
+/* =========================================================
+   PAGE CONTAINER & TOP BAR
+   ========================================================= */
+.page {
+  padding: 28px 32px 48px;
+  max-width: 1550px;
+  width: 100%;
+  margin: 0 auto;
+  flex: 1;
+}
+.page-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+.page h1 {
+  font: 800 26px 'Manrope', sans-serif;
+  letter-spacing: -0.8px;
+  margin: 0;
+}
+.date-chip {
+  padding: 8px 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* =========================================================
+   METRIC CARDS
+   ========================================================= */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.metric {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.metric-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+.metric-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  background: var(--blue-light);
+  color: var(--blue);
+  font-size: 14px;
+}
+.metric-value {
+  font: 800 28px/1.2 'Manrope', sans-serif;
+  margin: 10px 0 4px;
+  letter-spacing: -1px;
+}
+.trend {
+  font-size: 11px;
+  color: var(--green);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.trend.down {
+  color: var(--red);
+}
+.trend.neutral {
+  color: var(--muted);
+}
+
+/* =========================================================
+   DASHBOARD GRIDS & CARDS
+   ========================================================= */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--line-light);
+}
+.card h2 {
+  margin: 0;
+  font: 700 16px 'Manrope', sans-serif;
+}
+.link-btn {
+  border: 0;
+  background: transparent;
+  color: var(--blue);
+  font: 700 12px 'DM Sans', sans-serif;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+.link-btn:hover {
+  text-decoration: underline;
+}
+
+/* Dynamic CSS/SVG Chart */
+.chart-area {
+  height: 230px;
+  padding: 12px 20px 16px;
+  display: flex;
+  gap: 16px;
+}
+.y-labels {
+  font-size: 10px;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 22px;
+  font-weight: 600;
+}
+.bars {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  border-bottom: 1px solid var(--line);
+  background: repeating-linear-gradient(to bottom, transparent 0, transparent 53px, var(--line-light) 54px);
+}
+.bar-item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+.bar {
+  width: 28px;
+  background: linear-gradient(180deg, #38bdf8 0%, var(--blue) 100%);
+  border-radius: 6px 6px 0 0;
+  transition: height 0.4s ease, filter 0.15s;
+  cursor: pointer;
+}
+.bar:hover {
+  filter: brightness(1.15);
+}
+
+/* Donut Ticket Health Widget */
+.pie-layout {
+  padding: 20px 24px 28px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.donut {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: conic-gradient(var(--blue) 0 45%, #38bdf8 45% 70%, var(--orange) 70% 88%, var(--green) 88%);
+  position: relative;
+  flex-shrink: 0;
+}
+.donut::after {
+  content: attr(data-center-text);
+  white-space: pre;
+  position: absolute;
+  inset: 28px;
+  background: var(--surface);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font: 800 13px/1.3 'Manrope', sans-serif;
+  color: var(--ink);
+}
+.legend {
+  display: grid;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--ink-secondary);
+}
+.legend span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.legend span::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--c);
+}
+.legend b {
+  margin-left: auto;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* =========================================================
+   TABLES & LISTS
+   ========================================================= */
+.table-card {
+  margin-top: 20px;
+}
+.table-wrap {
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+th {
+  text-align: left;
+  padding: 12px 20px;
+  color: var(--muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  font-weight: 800;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+td {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--line-light);
+  font-size: 13px;
+  vertical-align: middle;
+}
+tr:hover td {
+  background: var(--surface-hover);
+}
+tr:last-child td {
+  border-bottom: 0;
+}
+.ticket-id {
+  color: var(--blue);
+  font-weight: 700;
+  font-family: monospace;
+  font-size: 12px;
+  cursor: pointer;
+}
+.ticket-id:hover {
+  text-decoration: underline;
+}
+.person {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+.tiny-avatar {
+  width: 24px;
+  height: 24px;
+  background: var(--blue-light);
+  color: var(--blue);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+/* Status & Priority Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.badge.open {
+  color: var(--blue);
+  background: var(--blue-light);
+}
+.badge.inprogress, .badge.progress {
+  color: var(--orange-text);
+  background: var(--orange-bg);
+}
+.badge.resolved, .badge.active, .badge.healthy {
+  color: var(--green-text);
+  background: var(--green-bg);
+}
+.badge.critical, .badge.reorder, .badge.suspended, .badge.lost {
+  color: var(--red-text);
+  background: var(--red-bg);
+}
+.badge.high {
+  color: var(--orange-text);
+  background: var(--orange-bg);
+}
+.badge.medium {
+  color: var(--blue);
+  background: var(--blue-light);
+}
+.badge.low {
+  color: var(--muted);
+  background: var(--line-light);
+}
+.badge.pending, .badge.onboarding {
+  color: var(--purple-text);
+  background: var(--purple-bg);
+}
+.badge.closed, .badge.won {
+  color: var(--green-text);
+  background: var(--green-bg);
+}
+
+/* Action Controls & Filters */
+.module-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.outline-btn {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink-secondary);
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  font: 600 12px 'DM Sans', sans-serif;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+.outline-btn:hover {
+  border-color: var(--muted);
+  background: var(--surface-hover);
+  color: var(--ink);
+}
+.primary-btn {
+  border: 0;
+  background: var(--blue);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  font: 700 12px 'DM Sans', sans-serif;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: var(--shadow-sm);
+  transition: background 0.15s ease;
+}
+.primary-btn:hover {
+  background: var(--blue-hover);
+}
+.danger-btn {
+  border: 0;
+  background: var(--red);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  font: 700 12px 'DM Sans', sans-serif;
+  cursor: pointer;
+}
+.filter-select {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 7px 12px;
+  font: 600 12px 'DM Sans', sans-serif;
+  outline: none;
+  cursor: pointer;
+}
+
+/* =========================================================
+   KANBAN BOARD (LEADS)
+   ========================================================= */
+.kanban {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(240px, 1fr));
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+  align-items: start;
+}
+.kanban-col {
+  background: var(--line-light);
+  border-radius: var(--radius);
+  padding: 14px 12px;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.2s;
+}
+.kanban-col.drag-over {
+  background: var(--blue-light);
+  outline: 2px dashed var(--blue);
+}
+.kanban-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 0 4px;
+}
+.kanban-title {
+  font: 800 13px 'Manrope', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.kanban-col-total {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 700;
+  margin-bottom: 8px;
+  padding: 0 4px;
+}
+.count {
+  color: var(--ink-secondary);
+  background: var(--surface);
+  padding: 2px 7px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.kanban-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+.lead-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--blue);
+  cursor: grab;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  user-select: none;
+}
+.lead-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+.lead-card.dragging {
+  opacity: 0.4;
+  cursor: grabbing;
+}
+.lead-card b {
+  font-size: 13px;
+  display: block;
+  margin-bottom: 4px;
+}
+.lead-card p {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.lead-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: var(--ink-secondary);
+  border-top: 1px solid var(--line-light);
+  padding-top: 8px;
+}
+.lead-val {
+  font-weight: 800;
+  color: var(--green);
+}
+
+/* =========================================================
+   INVENTORY & TIMELINES
+   ========================================================= */
+.inventory-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 20px;
+}
+.stock-row {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr 0.7fr 0.5fr;
+  align-items: center;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--line-light);
+  font-size: 13px;
+  gap: 12px;
+}
+.stock-row small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 2px;
+}
+.progress-bar {
+  height: 6px;
+  border-radius: 4px;
+  background: var(--line);
+  overflow: hidden;
+  margin-top: 4px;
+}
+.progress-bar i {
+  display: block;
+  height: 100%;
+  background: var(--green);
+  border-radius: 4px;
+  transition: width 0.3s;
+}
+.progress-bar i.warn {
+  background: var(--red);
+}
+
+.alert-box {
+  margin: 12px 20px 16px;
+  padding: 14px 16px;
+  background: var(--orange-bg);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: var(--radius-sm);
+  color: var(--orange-text);
+  font-size: 12px;
+}
+.alert-box b {
+  font-size: 13px;
+}
+
+.timeline {
+  padding: 8px 20px 20px;
+}
+.timeline-item {
+  border-left: 2px solid var(--line);
+  padding: 0 0 20px 18px;
+  position: relative;
+  font-size: 13px;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--blue);
+  border: 2px solid var(--surface);
+  border-radius: 50%;
+  left: -6px;
+  top: 4px;
+}
+.timeline-item small {
+  display: block;
+  color: var(--muted);
+  margin-top: 3px;
+  font-size: 11px;
+}
+.empty-state {
+  padding: 48px 20px;
+  text-align: center;
+  color: var(--muted);
+}
+.empty-state span {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* =========================================================
+   MODALS, DRAWERS & COMMAND PALETTE
+   ========================================================= */
+.modal-wrap {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  background: rgba(15, 35, 61, 0.45);
+  backdrop-filter: blur(4px);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  animation: fadeIn 0.15s ease-out;
+}
+.modal {
+  width: min(560px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 28px;
+  position: relative;
+  border: 1px solid var(--line);
+  animation: scaleUp 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.close-btn {
+  position: absolute;
+  right: 20px;
+  top: 18px;
+  border: 0;
+  background: transparent;
+  font-size: 24px;
+  color: var(--muted);
+  cursor: pointer;
+  line-height: 1;
+}
+.close-btn:hover {
+  color: var(--ink);
+}
+.modal h2 {
+  font: 800 22px 'Manrope', sans-serif;
+  margin-bottom: 6px;
+}
+.modal p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+.field {
+  margin: 14px 0;
+}
+.field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--ink);
+}
+.field input, .field select, .field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  font: 13px 'DM Sans', sans-serif;
+  background: var(--surface);
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px var(--blue-subtle);
+}
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+/* Command Palette */
+.cmd-palette-box {
+  width: min(600px, 100%);
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  animation: scaleUp 0.15s ease-out;
+}
+.cmd-input-wrap {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+  gap: 12px;
+}
+.cmd-icon {
+  font-size: 18px;
+  color: var(--muted);
+}
+.cmd-input-wrap input {
+  flex: 1;
+  border: 0;
+  outline: 0;
+  font: 16px 'DM Sans', sans-serif;
+  background: transparent;
+  color: var(--ink);
+}
+.cmd-results {
+  max-height: 380px;
+  overflow-y: auto;
+  padding: 8px;
+}
+.cmd-group-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  color: var(--muted);
+  padding: 8px 12px 4px;
+}
+.cmd-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--ink);
+  transition: background 0.1s;
+}
+.cmd-item:hover, .cmd-item.selected {
+  background: var(--blue-light);
+  color: var(--blue);
+}
+.cmd-item-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.cmd-item-icon {
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}
+.cmd-tag {
+  font-size: 10px;
+  background: var(--line);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--muted);
+}
+
+/* =========================================================
+   POPOVER MENUS & NOTIFICATIONS
+   ========================================================= */
+.notif-wrapper {
+  position: relative;
+}
+.notif-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  width: 320px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  z-index: 50;
+  overflow: hidden;
+  animation: fadeIn 0.15s ease;
+}
+.notif-head {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.notif-head b {
+  font-size: 13px;
+}
+.text-btn {
+  background: transparent;
+  border: 0;
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.notif-list {
+  max-height: 320px;
+  overflow-y: auto;
+}
+.notif-item {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line-light);
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.notif-item:hover {
+  background: var(--surface-hover);
+}
+.notif-item.unread {
+  background: var(--blue-light);
+}
+.notif-item b {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+.notif-item small {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.menu-popover {
+  position: fixed;
+  left: 20px;
+  bottom: 80px;
+  width: 250px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  z-index: 50;
+  padding: 8px;
+  animation: fadeIn 0.15s ease;
+}
+.popover-head {
+  padding: 8px 10px;
+}
+.popover-head b {
+  display: block;
+  font-size: 13px;
+}
+.popover-head small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+}
+.popover-divider {
+  height: 1px;
+  background: var(--line);
+  margin: 6px 0;
+}
+.popover-section-label {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  color: var(--muted);
+  padding: 6px 10px 2px;
+}
+.popover-item {
+  width: 100%;
+  padding: 8px 10px;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-sm);
+  font: 600 12px 'DM Sans', sans-serif;
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.1s;
+}
+.popover-item:hover {
+  background: var(--surface-hover);
+}
+.popover-item.text-danger {
+  color: var(--red);
+}
+.popover-item.text-danger:hover {
+  background: var(--red-bg);
+}
+
+/* =========================================================
+   TOAST NOTIFICATIONS
+   ========================================================= */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+  pointer-events: none;
+}
+.toast {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius);
+  padding: 12px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 260px;
+  pointer-events: auto;
+  animation: slideInRight 0.25s ease-out;
+}
+.toast.success {
+  border-left: 4px solid var(--green);
+}
+.toast.info {
+  border-left: 4px solid var(--blue);
+}
+.toast.warning {
+  border-left: 4px solid var(--orange);
+}
+.toast.error {
+  border-left: 4px solid var(--red);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* =========================================================
+   RESPONSIVE QUERIES
+   ========================================================= */
+@media (max-width: 1024px) {
+  .metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .dashboard-grid, .inventory-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .login-view {
+    grid-template-columns: 1fr;
+  }
+  .login-intro {
+    display: none;
+  }
+  .mobile-brand-header {
+    display: flex;
+  }
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  .sidebar.open {
+    transform: translateX(0);
+    box-shadow: var(--shadow-lg);
+  }
+  main {
+    margin-left: 0;
+    width: 100%;
+  }
+  .mobile-menu {
+    display: grid;
+  }
+  .page {
+    padding: 20px 16px;
+  }
+  header {
+    padding: 0 16px;
+  }
+  .search-bar {
+    width: 45vw;
+  }
+  .new-btn span:last-child {
+    display: none;
+  }
+  .field-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+  .page-top {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .date-chip {
+    display: none;
+  }
+  .search-bar {
+    width: 55vw;
+  }
+  .search-bar kbd {
+    display: none;
+  }
+}
+
+
+    </style>
   </head>
   <body>
     <!-- Login View -->
@@ -193,7 +1796,3341 @@
     <!-- Toast Notification Container -->
     <div class="toast-container" id="toastContainer"></div>
 
-    <script src="app.js"></script>
-    <script src="master.js"></script>
+    <script>
+// Orbito CRM v2.0 - Core Engine & Reactive State Store
+
+const STORAGE_KEY = 'orbito_crm_v2_db';
+
+// Accounts for Instant Authentication
+const accounts = {
+  'master@orbito.test': { password: 'Master@123', role: 'Master Admin', name: 'Master Admin' },
+  'super@acme.test': { password: 'SuperAdmin@123', role: 'Super Admin', name: 'Dhanesh Kaytha' },
+  'admin@acme.test': { password: 'Admin@123', role: 'Admin', name: 'Ananya Deshmukh' },
+  'sales@acme.test': { password: 'Sales@123', role: 'Sales Team', name: 'Vikram Malhotra' },
+  'tech@acme.test': { password: 'Tech@123', role: 'Technician', name: 'Karan Mehta' }
+};
+
+// Initial Pristine Demo Database
+const defaultDB = {
+  tickets: [
+    {
+      id: 'TCK-1089',
+      customer: 'Mehta Engineering',
+      contactPerson: 'Arun Mehta',
+      email: 'arun@mehtaeng.in',
+      phone: '+91 98230 45671',
+      subject: 'Motor vibration in primary unit #4',
+      category: 'Motor',
+      priority: 'High',
+      status: 'In Progress',
+      assignedTo: 'Karan Mehta',
+      slaDeadline: '2h 14m',
+      createdAt: '2026-09-10 09:30',
+      description: 'Excessive mechanical vibration observed on 3-phase motor assembly during peak operating load.',
+      comments: [
+        { author: 'System', text: 'Ticket generated via IoT telemetry alert.', time: '09:30' },
+        { author: 'Karan Mehta', text: 'Arrived on site. Disassembled housing; checking rotor alignment and bearing wear.', time: '11:15' }
+      ],
+      partsUsed: ['Bearing kit (ORB-BRG-204) x 2']
+    },
+    {
+      id: 'TCK-1088',
+      customer: 'Suryodaya Motors',
+      contactPerson: 'Priya Sharma',
+      email: 'priya@suryodayamotors.com',
+      phone: '+91 98112 33445',
+      subject: 'Warranty replacement request for main sensor',
+      category: 'Warranty',
+      priority: 'Critical',
+      status: 'Open',
+      assignedTo: 'Karan Mehta',
+      slaDeadline: '46m',
+      createdAt: '2026-09-10 10:15',
+      description: 'Sensor cable shorted within warranty term; customer requesting immediate dispatch of replacement part.',
+      comments: [
+        { author: 'Priya Sharma', text: 'Warranty document submitted along with purchase invoice.', time: '10:15' }
+      ],
+      partsUsed: []
+    },
+    {
+      id: 'TCK-1086',
+      customer: 'Kapoor Manufacturing',
+      contactPerson: 'Anil Kapoor',
+      email: 'anil@kapoormfg.com',
+      phone: '+91 98765 43210',
+      subject: 'Control panel display not responding',
+      category: 'Electronics',
+      priority: 'Medium',
+      status: 'Resolved',
+      assignedTo: 'Karan Mehta',
+      slaDeadline: 'Met',
+      createdAt: '2026-09-09 14:00',
+      description: 'Firmware freeze on 3-phase control board after voltage surge.',
+      comments: [
+        { author: 'Karan Mehta', text: 'Reflashed controller microcontroller and replaced 24V auxiliary fuse. System operational.', time: '16:40' }
+      ],
+      partsUsed: ['Control panel, 3 phase (ORB-CTL-112) x 1']
+    },
+    {
+      id: 'TCK-1083',
+      customer: 'Riya Enterprises',
+      contactPerson: 'Riya Patel',
+      email: 'riya@riyaenterprises.com',
+      phone: '+91 99001 22334',
+      subject: 'Installation visit & calibration check',
+      category: 'Installation',
+      priority: 'Low',
+      status: 'Open',
+      assignedTo: 'Karan Mehta',
+      slaDeadline: '5h 12m',
+      createdAt: '2026-09-10 08:30',
+      description: 'Commissioning of new production conveyor drive and safety interlocks.',
+      comments: [
+        { author: 'System', text: 'Scheduled automated follow-up visit.', time: '08:30' }
+      ],
+      partsUsed: []
+    },
+    {
+      id: 'TCK-1081',
+      customer: 'Apex Systems',
+      contactPerson: 'Siddharth Rao',
+      email: 'siddharth@apexsystems.in',
+      phone: '+91 98450 11223',
+      subject: 'Hydraulic valve pressure drop',
+      category: 'Hydraulics',
+      priority: 'High',
+      status: 'Closed',
+      assignedTo: 'Karan Mehta',
+      slaDeadline: 'Met',
+      createdAt: '2026-09-08 11:20',
+      description: 'Seal replacement completed on high-pressure return circuit.',
+      comments: [
+        { author: 'Karan Mehta', text: 'Replaced O-rings and tested to 250 bar without leakage.', time: '14:00' }
+      ],
+      partsUsed: []
+    }
+  ],
+
+  leads: [
+    {
+      id: 'LEAD-101',
+      company: 'Apex Systems Ltd',
+      contact: 'Siddharth Rao',
+      email: 'siddharth@apexsystems.in',
+      phone: '+91 98450 11223',
+      dealValue: 340000,
+      stage: 'New',
+      source: 'Website',
+      notes: 'Interested in 5 units of industrial motor assembly with annual AMC.',
+      assignedTo: 'Vikram Malhotra',
+      createdAt: '2026-09-09'
+    },
+    {
+      id: 'LEAD-102',
+      company: 'Nisha Industries',
+      contact: 'Nisha Kulkarni',
+      email: 'nisha@nishaind.com',
+      phone: '+91 97654 32190',
+      dealValue: 180000,
+      stage: 'New',
+      source: 'Exhibition',
+      notes: 'Met at EngiTech Expo. Requires custom 3-phase controllers.',
+      assignedTo: 'Vikram Malhotra',
+      createdAt: '2026-09-08'
+    },
+    {
+      id: 'LEAD-103',
+      company: 'Pragati Tools & Dies',
+      contact: 'Mahesh Joshi',
+      email: 'mahesh@pragatitools.in',
+      phone: '+91 98221 44556',
+      dealValue: 220000,
+      stage: 'Contacted',
+      source: 'Referral',
+      notes: 'Initial discovery call completed. Technical specification doc sent.',
+      assignedTo: 'Vikram Malhotra',
+      createdAt: '2026-09-07'
+    },
+    {
+      id: 'LEAD-104',
+      company: 'Kohinoor Works',
+      contact: 'Farhan Akhtar',
+      email: 'farhan@kohinoorworks.com',
+      phone: '+91 91234 56789',
+      dealValue: 86000,
+      stage: 'Contacted',
+      source: 'Cold call',
+      notes: 'Follow-up demo scheduled for Thursday 3 PM.',
+      assignedTo: 'Vikram Malhotra',
+      createdAt: '2026-09-06'
+    },
+    {
+      id: 'LEAD-105',
+      company: 'Pioneer Auto Components',
+      contact: 'Sunil Verma',
+      email: 'sunil@pioneerauto.co.in',
+      phone: '+91 98900 11223',
+      dealValue: 480000,
+      stage: 'Qualified',
+      source: 'Dealer referral',
+      notes: 'Budget approved by plant head. Commercial terms discussion pending.',
+      assignedTo: 'Vikram Malhotra',
+      createdAt: '2026-09-05'
+    },
+    {
+      id: 'LEAD-106',
+      company: 'Sapphire Equipment Co',
+      contact: 'Gaurav Taneja',
+      email: 'gaurav@sapphireequip.com',
+      phone: '+91 97112 88990',
+      dealValue: 620000,
+      stage: 'Quotation Sent',
+      source: 'Website',
+      notes: 'Quote Q-2026-88 dispatched. Client evaluating warranty clause.',
+      assignedTo: 'Vikram Malhotra',
+      createdAt: '2026-09-04'
+    },
+    {
+      id: 'LEAD-107',
+      company: 'Mitra Traders',
+      contact: 'Deepak Mitra',
+      email: 'deepak@mitratraders.in',
+      phone: '+91 94331 55667',
+      dealValue: 140000,
+      stage: 'Quotation Sent',
+      source: 'Referral',
+      notes: 'Awaiting PO release before end of quarter.',
+      assignedTo: 'Vikram Malhotra',
+      createdAt: '2026-09-03'
+    },
+    {
+      id: 'LEAD-108',
+      company: 'Vector Industries',
+      contact: 'Rajesh Singhal',
+      email: 'rajesh@vectorind.com',
+      phone: '+91 98300 77889',
+      dealValue: 390000,
+      stage: 'Negotiation',
+      source: 'Exhibition',
+      notes: 'Final price negotiations on volume discount; 90% probability.',
+      assignedTo: 'Vikram Malhotra',
+      createdAt: '2026-09-02'
+    }
+  ],
+
+  dealers: [
+    {
+      id: 'DLR-301',
+      name: 'Pioneer Distributors',
+      contact: 'Rajiv Singhania',
+      phone: '+91 98110 54321',
+      email: 'orders@pioneerdist.com',
+      category: 'Distributor',
+      region: 'North',
+      revenue: 1240000,
+      creditLimit: 1500000,
+      creditUsed: 560000,
+      status: 'Active',
+      onboardingDate: '2025-11-14'
+    },
+    {
+      id: 'DLR-302',
+      name: 'Riya Enterprises',
+      contact: 'Rakesh Patel',
+      phone: '+91 99001 22334',
+      email: 'procurement@riyaenterprises.com',
+      category: 'Dealer',
+      region: 'West',
+      revenue: 870000,
+      creditLimit: 1000000,
+      creditUsed: 210000,
+      status: 'Active',
+      onboardingDate: '2026-01-20'
+    },
+    {
+      id: 'DLR-303',
+      name: 'Mitra Industrial Supply',
+      contact: 'Subhash Mitra',
+      phone: '+91 94330 99887',
+      email: 'subhash@mitraindustry.in',
+      category: 'Dealer',
+      region: 'South',
+      revenue: 610000,
+      creditLimit: 800000,
+      creditUsed: 0,
+      status: 'Pending',
+      onboardingDate: '2026-09-01'
+    },
+    {
+      id: 'DLR-304',
+      name: 'Kohinoor Trading Co.',
+      contact: 'Zakir Hussain',
+      phone: '+91 91234 00998',
+      email: 'zakir@kohinoortrading.com',
+      category: 'Sub-dealer',
+      region: 'East',
+      revenue: 420000,
+      creditLimit: 500000,
+      creditUsed: 140000,
+      status: 'Active',
+      onboardingDate: '2026-03-12'
+    },
+    {
+      id: 'DLR-305',
+      name: 'Malwa Machinery Hub',
+      contact: 'Devendra Malviya',
+      phone: '+91 98270 33441',
+      email: 'sales@malwamachinery.com',
+      category: 'Dealer',
+      region: 'Central',
+      revenue: 530000,
+      creditLimit: 750000,
+      creditUsed: 120000,
+      status: 'Active',
+      onboardingDate: '2026-04-05'
+    }
+  ],
+
+  inventory: [
+    {
+      sku: 'ORB-MTR-001',
+      name: 'Industrial Motor Assembly 5HP',
+      category: 'Motors',
+      warehouse: 'Central Warehouse (Mumbai)',
+      inStock: 76,
+      minReorder: 80,
+      unitCost: 14500,
+      price: 21000,
+      movements: [
+        { date: 'Today 10:15', type: 'Inward', qty: 120, ref: 'PO-2041', note: 'Supplier delivery batch A4' },
+        { date: 'Today 12:30', type: 'Outward', qty: -2, ref: 'TCK-1089', note: 'Used during field maintenance' }
+      ]
+    },
+    {
+      sku: 'ORB-CTL-112',
+      name: 'Control Panel, 3-Phase Smart',
+      category: 'Electronics',
+      warehouse: 'Central Warehouse (Mumbai)',
+      inStock: 19,
+      minReorder: 30,
+      unitCost: 8200,
+      price: 13500,
+      movements: [
+        { date: 'Yesterday 15:40', type: 'Outward', qty: -1, ref: 'TCK-1086', note: 'Replacement on client site' },
+        { date: '2026-09-05', type: 'Inward', qty: 25, ref: 'PO-2038', note: 'Factory dispatch received' }
+      ]
+    },
+    {
+      sku: 'ORB-BRG-204',
+      name: 'Heavy Duty Bearing Kit (Set of 4)',
+      category: 'Mechanical',
+      warehouse: 'Pune Regional Hub',
+      inStock: 148,
+      minReorder: 100,
+      unitCost: 1800,
+      price: 3200,
+      movements: [
+        { date: 'Today 09:00', type: 'Outward', qty: -2, ref: 'TCK-1089', note: 'Dispatched to Tech Karan Mehta' }
+      ]
+    },
+    {
+      sku: 'ORB-CBL-030',
+      name: 'Shielded Sensor Cable, 3m',
+      category: 'Electrical',
+      warehouse: 'Central Warehouse (Mumbai)',
+      inStock: 12,
+      minReorder: 25,
+      unitCost: 650,
+      price: 1200,
+      movements: [
+        { date: '2026-09-08', type: 'Outward', qty: -6, ref: 'SO-884', note: 'Order shipment to Riya Enterprises' }
+      ]
+    },
+    {
+      sku: 'ORB-VLV-501',
+      name: 'High Pressure Hydraulic Relief Valve',
+      category: 'Hydraulics',
+      warehouse: 'Delhi Hub',
+      inStock: 42,
+      minReorder: 30,
+      unitCost: 3400,
+      price: 5800,
+      movements: [
+        { date: '2026-09-04', type: 'Inward', qty: 50, ref: 'PO-2030', note: 'Inward shipment received' }
+      ]
+    }
+  ],
+
+  users: [
+    { id: 'USR-01', name: 'Dhanesh Kaytha', email: 'super@acme.test', role: 'Super Admin', dept: 'Executive', branch: 'HQ (Mumbai)', status: 'Active' },
+    { id: 'USR-02', name: 'Ananya Deshmukh', email: 'admin@acme.test', role: 'Admin', dept: 'Operations', branch: 'Pune Branch', status: 'Active' },
+    { id: 'USR-03', name: 'Vikram Malhotra', email: 'sales@acme.test', role: 'Sales Team', dept: 'Sales', branch: 'Delhi Branch', status: 'Active' },
+    { id: 'USR-04', name: 'Karan Mehta', email: 'tech@acme.test', role: 'Technician', dept: 'Field Service', branch: 'Mumbai West', status: 'Active' },
+    { id: 'USR-05', name: 'Pooja Hegde', email: 'pooja@acme.test', role: 'Technician', dept: 'Field Service', branch: 'Bangalore Hub', status: 'Active' },
+    { id: 'USR-06', name: 'Master Admin', email: 'master@orbito.test', role: 'Master Admin', dept: 'Platform Security', branch: 'Cloud Control', status: 'Active' }
+  ],
+
+  scheduledReports: [
+    { id: 'REP-01', name: 'Weekly SLA & Complaints Summary', type: 'Service', freq: 'Weekly', format: 'PDF', recipient: 'management@acme.test', status: 'Active', lastRun: '2026-09-08' },
+    { id: 'REP-02', name: 'Monthly Sales Pipeline & Revenue', type: 'Sales', freq: 'Monthly', format: 'CSV', recipient: 'sales.head@acme.test', status: 'Active', lastRun: '2026-09-01' },
+    { id: 'REP-03', name: 'Daily Low Stock & Reorder Alert', type: 'Inventory', freq: 'Daily', format: 'Excel', recipient: 'procurement@acme.test', status: 'Active', lastRun: 'Today 08:00' }
+  ],
+
+  auditLogs: [
+    { id: 'AUD-101', time: 'Today 14:15', user: 'Dhanesh Kaytha', role: 'Super Admin', action: 'Exported partner registry', target: 'Dealers Module', ip: '103.21.58.12' },
+    { id: 'AUD-102', time: 'Today 12:30', user: 'Karan Mehta', role: 'Technician', action: 'Requested 2 bearing kits', target: 'TCK-1089', ip: '49.36.110.45' },
+    { id: 'AUD-103', time: 'Today 11:20', user: 'Vikram Malhotra', role: 'Sales Team', action: 'Updated deal value to ₹6.2L', target: 'Sapphire Equip.', ip: '157.34.89.201' },
+    { id: 'AUD-104', time: 'Today 09:30', user: 'System', role: 'Automated', action: 'Created incident ticket', target: 'TCK-1089', ip: '127.0.0.1' }
+  ],
+
+  notifications: [
+    { id: 'NOT-01', title: 'Low Stock Alert', message: 'Control panel (ORB-CTL-112) is below reorder level (19/30).', time: '15 min ago', read: false, type: 'warning' },
+    { id: 'NOT-02', title: 'SLA Deadline Imminent', message: 'Ticket TCK-1088 has 46 minutes remaining.', time: '40 min ago', read: false, type: 'critical' },
+    { id: 'NOT-03', title: 'New Dealer Application', message: 'Mitra Industrial Supply submitted onboarding documents.', time: '2h ago', read: false, type: 'info' }
+  ]
+};
+
+// Application Global State
+let db = loadDatabase();
+const state = {
+  role: 'Super Admin',
+  view: 'Overview',
+  authenticated: false,
+  currentUser: accounts['super@acme.test'],
+  ticketFilter: { status: 'All', priority: 'All', query: '' },
+  dealerFilter: { region: 'All', status: 'All', query: '' },
+  leadsViewMode: 'kanban' // 'kanban' or 'table'
+};
+
+// Database persistence functions
+function loadDatabase() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      return JSON.parse(saved);
+    }
+  } catch (e) {
+    console.error('Failed to parse saved database from localStorage', e);
+  }
+  saveDatabase(defaultDB);
+  return JSON.parse(JSON.stringify(defaultDB));
+}
+
+function saveDatabase(data) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data || db));
+  } catch (e) {
+    console.error('Failed to save database to localStorage', e);
+  }
+}
+
+function logAudit(action, target) {
+  const newLog = {
+    id: 'AUD-' + Date.now().toString().slice(-4),
+    time: 'Just now',
+    user: state.currentUser ? state.currentUser.name : state.role,
+    role: state.role,
+    action: action,
+    target: target,
+    ip: '127.0.0.1'
+  };
+  db.auditLogs.unshift(newLog);
+  if (db.auditLogs.length > 50) db.auditLogs.pop();
+  saveDatabase();
+}
+
+function addNotification(title, message, type = 'info') {
+  const notif = {
+    id: 'NOT-' + Date.now().toString().slice(-4),
+    title: title,
+    message: message,
+    time: 'Just now',
+    read: false,
+    type: type
+  };
+  db.notifications.unshift(notif);
+  if (db.notifications.length > 30) db.notifications.pop();
+  saveDatabase();
+  renderNotifications();
+  showToast(title, type);
+}
+
+// Role Navigation Maps
+const roles = {
+  'Master Admin': ['Platform Overview', 'Companies', 'Platform Analytics', 'Subscriptions', 'Platform Users', 'Audit Logs'],
+  'Super Admin': ['Overview', 'Tickets', 'Leads', 'Dealers', 'Inventory', 'Reports', 'Team & Roles', 'Audit Logs', 'Settings'],
+  'Admin': ['Overview', 'Tickets', 'Leads', 'Dealers', 'Inventory', 'Reports', 'Team', 'Audit Logs'],
+  'Sales Team': ['Overview', 'My Leads', 'Dealers', 'Inventory'],
+  'Technician': ['My Day', 'Assigned Tickets', 'Parts Requests']
+};
+
+const icons = {
+  'Platform Overview': '⌂',
+  'Companies': '▣',
+  'Platform Analytics': '◒',
+  'Subscriptions': '◈',
+  'Platform Users': '♙',
+  'Overview': '⌂',
+  'Tickets': '◫',
+  'Leads': '◇',
+  'My Leads': '◇',
+  'Dealers': '♧',
+  'Inventory': '▦',
+  'Parts Requests': '▦',
+  'Reports': '◒',
+  'Team & Roles': '♙',
+  'Team': '♙',
+  'Audit Logs': '◷',
+  'Settings': '⚙',
+  'My Day': '◉',
+  'Assigned Tickets': '◫'
+};
+
+// Navigation Renderer
+function nav() {
+  const items = roles[state.role] || roles['Super Admin'];
+  const openTicketsCount = db.tickets.filter(t => t.status === 'Open' || t.status === 'In Progress').length;
+  const pendingDealersCount = db.dealers.filter(d => d.status === 'Pending').length;
+  const lowStockCount = db.inventory.filter(i => i.inStock <= i.minReorder).length;
+
+  document.querySelector('#nav').innerHTML = `
+    <div class="nav-group">WORKSPACE</div>
+    ${items.map(x => {
+      let badge = '';
+      if (x === 'Tickets' || x === 'Assigned Tickets') badge = `<span class="badge-count">${openTicketsCount}</span>`;
+      else if (x === 'Dealers' && pendingDealersCount > 0) badge = `<span class="badge-count" style="background:#fef3c7;color:#92400e;">${pendingDealersCount}</span>`;
+      else if ((x === 'Inventory' || x === 'Parts Requests') && lowStockCount > 0) badge = `<span class="badge-count" style="background:#fee2e2;color:#991b1b;">${lowStockCount}</span>`;
+
+      return `
+        <button class="nav-item ${state.view === x ? 'active' : ''}" data-view="${x}">
+          <span class="nav-icon">${icons[x] || '•'}</span>
+          <span>${x}</span>
+          ${badge}
+        </button>
+      `;
+    }).join('')}
+    <div class="nav-group">ACCOUNT</div>
+    <button class="nav-item" id="logoutNavBtn"><span class="nav-icon">⇥</span>Sign out</button>
+  `;
+
+  document.querySelectorAll('[data-view]').forEach(b => {
+    b.onclick = () => {
+      state.view = b.dataset.view;
+      render();
+    };
+  });
+
+  const logoutNav = document.querySelector('#logoutNavBtn');
+  if (logoutNav) logoutNav.onclick = logout;
+}
+
+// Format Currency in Indian Lakhs / Rupees
+function formatINR(num) {
+  if (num >= 100000) {
+    return '₹' + (num / 100000).toFixed(1) + 'L';
+  } else if (num >= 1000) {
+    return '₹' + (num / 1000).toFixed(0) + 'K';
+  }
+  return '₹' + Number(num).toLocaleString('en-IN');
+}
+
+// Metrics Engine
+function metrics() {
+  if (state.role === 'Technician') {
+    const assignedTickets = db.tickets.filter(t => t.assignedTo.includes('Karan') || t.assignedTo.includes('Tech'));
+    const pendingParts = db.inventory.reduce((acc, item) => acc + (item.inStock < item.minReorder ? 1 : 0), 0);
+    return `
+      <div class="metrics">
+        <article class="metric">
+          <div class="metric-head"><span>Today’s scheduled visits</span><span class="metric-icon">◉</span></div>
+          <div class="metric-value">03</div>
+          <div class="trend">1 completed · 2 remaining</div>
+        </article>
+        <article class="metric">
+          <div class="metric-head"><span>My open tickets</span><span class="metric-icon">◫</span></div>
+          <div class="metric-value">${assignedTickets.filter(t => t.status !== 'Resolved' && t.status !== 'Closed').length}</div>
+          <div class="trend down">1 nearing SLA breach</div>
+        </article>
+        <article class="metric">
+          <div class="metric-head"><span>Resolution rate</span><span class="metric-icon">✓</span></div>
+          <div class="metric-value">94.2%</div>
+          <div class="trend">↑ 3.8% this month</div>
+        </article>
+        <article class="metric">
+          <div class="metric-head"><span>Parts low stock</span><span class="metric-icon">▦</span></div>
+          <div class="metric-value">0${pendingParts}</div>
+          <div class="trend down">Awaiting central dispatch</div>
+        </article>
+      </div>
+    `;
+  }
+
+  if (state.role === 'Sales Team') {
+    const totalPipeline = db.leads.reduce((sum, l) => sum + (l.stage !== 'Closed Lost' ? l.dealValue : 0), 0);
+    const wonCount = db.leads.filter(l => l.stage === 'Closed Won' || l.stage === 'Negotiation').length;
+    const totalLeads = db.leads.length;
+    const winRate = totalLeads ? Math.round((wonCount / totalLeads) * 100) : 32;
+
+    return `
+      <div class="metrics">
+        <article class="metric">
+          <div class="metric-head"><span>My sales pipeline</span><span class="metric-icon">◇</span></div>
+          <div class="metric-value">${formatINR(totalPipeline)}</div>
+          <div class="trend">↑ 14.2% this month</div>
+        </article>
+        <article class="metric">
+          <div class="metric-head"><span>Active leads</span><span class="metric-icon">◉</span></div>
+          <div class="metric-value">${db.leads.length}</div>
+          <div class="trend">4 require follow-up today</div>
+        </article>
+        <article class="metric">
+          <div class="metric-head"><span>Win conversion rate</span><span class="metric-icon">↗</span></div>
+          <div class="metric-value">${winRate}%</div>
+          <div class="trend">↑ 4.1% vs target</div>
+        </article>
+        <article class="metric">
+          <div class="metric-head"><span>Closed revenue</span><span class="metric-icon">◎</span></div>
+          <div class="metric-value">₹14.8L</div>
+          <div class="trend">78% of monthly quota</div>
+        </article>
+      </div>
+    `;
+  }
+
+  // Super Admin / Admin Metrics
+  const openTickets = db.tickets.filter(t => t.status === 'Open' || t.status === 'In Progress').length;
+  const activeDealers = db.dealers.filter(d => d.status === 'Active').length;
+  const totalStockValue = db.inventory.reduce((sum, i) => sum + (i.inStock * i.unitCost), 0);
+  const lowStockCount = db.inventory.filter(i => i.inStock <= i.minReorder).length;
+
+  return `
+    <div class="metrics">
+      <article class="metric">
+        <div class="metric-head"><span>Monthly revenue</span><span class="metric-icon">↗</span></div>
+        <div class="metric-value">₹48.6L</div>
+        <div class="trend">↑ 16.4% vs last month</div>
+      </article>
+      <article class="metric">
+        <div class="metric-head"><span>Active tickets</span><span class="metric-icon">◫</span></div>
+        <div class="metric-value">${openTickets}</div>
+        <div class="trend down">${db.tickets.filter(t => t.priority === 'Critical').length} critical priority</div>
+      </article>
+      <article class="metric">
+        <div class="metric-head"><span>Dealer network</span><span class="metric-icon">♧</span></div>
+        <div class="metric-value">${activeDealers}</div>
+        <div class="trend">Across 5 active regions</div>
+      </article>
+      <article class="metric">
+        <div class="metric-head"><span>Stock valuation</span><span class="metric-icon">▦</span></div>
+        <div class="metric-value">${formatINR(totalStockValue)}</div>
+        <div class="trend ${lowStockCount > 0 ? 'down' : ''}">${lowStockCount} items below reorder</div>
+      </article>
+    </div>
+  `;
+}
+
+// Chart Engine
+function chart() {
+  const months = [
+    { m: 'Apr', val: 44 },
+    { m: 'May', val: 58 },
+    { m: 'Jun', val: 52 },
+    { m: 'Jul', val: 78 },
+    { m: 'Aug', val: 68 },
+    { m: 'Sep', val: 92 }
+  ];
+
+  return `
+    <div class="card">
+      <div class="card-head">
+        <div>
+          <h2>Revenue Performance</h2>
+          <span class="subtitle">Monthly operations & sales performance · FY 2026</span>
+        </div>
+        <span class="badge resolved">Target Exceeded</span>
+      </div>
+      <div class="chart-area">
+        <div class="y-labels">
+          <span>₹60L</span>
+          <span>₹45L</span>
+          <span>₹30L</span>
+          <span>₹15L</span>
+          <span>₹0</span>
+        </div>
+        <div class="bars">
+          ${months.map(item => `
+            <div class="bar-item" title="${item.m} 2026: ₹${(item.val * 0.6).toFixed(1)}L">
+              <i class="bar" style="height: ${item.val}%"></i>
+              <span>${item.m}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// Donut Ticket Health Widget
+function statusWidget() {
+  const openCount = db.tickets.filter(t => t.status === 'Open').length;
+  const progCount = db.tickets.filter(t => t.status === 'In Progress').length;
+  const resCount = db.tickets.filter(t => t.status === 'Resolved' || t.status === 'Closed').length;
+  const total = db.tickets.length || 1;
+
+  const openPct = Math.round((openCount / total) * 100);
+  const progPct = Math.round((progCount / total) * 100);
+  const resPct = 100 - openPct - progPct;
+
+  const gradient = `conic-gradient(#1b63b9 0% ${openPct}%, #f59e0b ${openPct}% ${openPct + progPct}%, #10b981 ${openPct + progPct}% 100%)`;
+
+  return `
+    <div class="card">
+      <div class="card-head">
+        <div>
+          <h2>Ticket SLA Health</h2>
+          <span class="subtitle">Real-time status breakdown</span>
+        </div>
+        <button class="link-btn" onclick="goto('Tickets')">View details →</button>
+      </div>
+      <div class="pie-layout">
+        <div class="donut" style="background: ${gradient};" data-center-text="${total}\nTotal"></div>
+        <div class="legend">
+          <span style="--c:#1b63b9">Open <b>${openCount}</b></span>
+          <span style="--c:#f59e0b">In Progress <b>${progCount}</b></span>
+          <span style="--c:#10b981">Resolved / Closed <b>${resCount}</b></span>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// Page Top Bar Component
+function pageTop(title, subtitle, actions = '') {
+  return `
+    <div class="page-top">
+      <div>
+        <p class="eyebrow">${state.role} workspace</p>
+        <h1>${title}</h1>
+        <p class="subtitle">${subtitle}</p>
+      </div>
+      ${actions || `<span class="date-chip">◷  September 2026</span>`}
+    </div>
+  `;
+}
+
+// Technician Route Timeline
+function timeline() {
+  return `
+    <div class="card">
+      <div class="card-head">
+        <div>
+          <h2>Today’s Field Schedule</h2>
+          <span class="subtitle">3 service visits assigned · Western Zone</span>
+        </div>
+        <button class="primary-btn" onclick="showToast('Live GPS check-in recorded', 'info')">📍 Check-In</button>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <b>09:30 · Riya Enterprises (Andheri East)</b>
+          <small>Installation follow-up & calibration · TCK-1083 · <span class="badge resolved">Completed</span></small>
+        </div>
+        <div class="timeline-item">
+          <b>12:15 · Mehta Engineering (Thane)</b>
+          <small>Motor vibration inspection & bearing swap · TCK-1089 · <span class="badge inprogress">In Progress</span></small>
+        </div>
+        <div class="timeline-item">
+          <b>15:45 · Suryodaya Motors (Bhiwandi)</b>
+          <small>Warranty replacement check · TCK-1088 · <span class="badge critical">Pending</span></small>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// Tickets Table View
+function ticketsTable(limit = false) {
+  let list = db.tickets;
+
+  // Filter application
+  if (state.role === 'Technician') {
+    list = list.filter(t => t.assignedTo.includes('Karan') || t.assignedTo.includes('Tech'));
+  }
+
+  if (state.ticketFilter.status !== 'All') {
+    list = list.filter(t => t.status.toLowerCase() === state.ticketFilter.status.toLowerCase());
+  }
+  if (state.ticketFilter.priority !== 'All') {
+    list = list.filter(t => t.priority.toLowerCase() === state.ticketFilter.priority.toLowerCase());
+  }
+  if (state.ticketFilter.query) {
+    const q = state.ticketFilter.query.toLowerCase();
+    list = list.filter(t => t.id.toLowerCase().includes(q) || t.customer.toLowerCase().includes(q) || t.subject.toLowerCase().includes(q));
+  }
+
+  const displayList = limit ? list.slice(0, 4) : list;
+
+  return `
+    <div class="card table-card">
+      <div class="card-head">
+        <div>
+          <h2>${state.role === 'Technician' ? 'My Assigned Tickets' : 'Recent Tickets'}</h2>
+          <span class="subtitle">${list.length} tickets matching current filters</span>
+        </div>
+        ${limit ? `<button class="link-btn" onclick="goto('Tickets')">View all tickets →</button>` : ''}
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Ticket ID</th>
+              <th>Customer & Subject</th>
+              <th>Category</th>
+              <th>Assigned Rep</th>
+              <th>Priority</th>
+              <th>Status</th>
+              <th>SLA</th>
+              <th style="text-align:right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${displayList.length === 0 ? `
+              <tr><td colspan="8" class="empty-state"><span>📋</span>No tickets found matching current criteria.</td></tr>
+            ` : displayList.map(t => `
+              <tr>
+                <td class="ticket-id" onclick="openTicketDetail('${t.id}')">${t.id}</td>
+                <td>
+                  <b>${t.customer}</b>
+                  <small style="display:block;color:var(--muted);">${t.subject}</small>
+                </td>
+                <td>${t.category}</td>
+                <td>
+                  <span class="person">
+                    <span class="tiny-avatar">${t.assignedTo.split(' ').map(x => x[0]).join('')}</span>
+                    ${t.assignedTo}
+                  </span>
+                </td>
+                <td><span class="badge ${t.priority.toLowerCase()}">${t.priority}</span></td>
+                <td><span class="badge ${t.status.toLowerCase().replace(' ', '')}">${t.status}</span></td>
+                <td><b>${t.slaDeadline}</b></td>
+                <td style="text-align:right;">
+                  <button class="outline-btn" style="padding:4px 8px;font-size:11px;" onclick="openTicketDetail('${t.id}')">View</button>
+                </td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+
+// Overview Workspace Page
+function overview() {
+  const isTech = state.role === 'Technician';
+  const name = state.currentUser ? state.currentUser.name.split(' ')[0] : 'there';
+
+  return `
+    ${pageTop(isTech ? 'Field Operations Route' : `Good morning, ${name}`, isTech ? 'Your daily service schedule and assigned complaints.' : 'Real-time overview of Acme India customer operations and revenue.')}
+    ${metrics()}
+    <div class="dashboard-grid">
+      ${isTech ? timeline() : chart()}
+      ${statusWidget()}
+    </div>
+    ${ticketsTable(true)}
+  `;
+}
+
+// Tickets Management Page
+function ticketPage() {
+  return `
+    ${pageTop(
+      'Service & Complaint Tickets',
+      'Manage incoming complaints, assign technicians, track parts usage, and enforce SLA commitments.',
+      `
+        <div class="module-actions">
+          <button class="outline-btn" onclick="exportTicketsCSV()">⇩ Export CSV</button>
+          <button class="primary-btn" onclick="openForm('ticket')">＋ Create ticket</button>
+        </div>
+      `
+    )}
+
+    <div class="card" style="padding:16px 20px;margin-bottom:16px;">
+      <div class="module-actions">
+        <input 
+          type="text" 
+          placeholder="Filter by customer, ID or subject..." 
+          class="filter-select" 
+          style="flex:1;min-width:200px;" 
+          value="${state.ticketFilter.query}" 
+          oninput="state.ticketFilter.query=this.value;renderTicketTableOnly()"
+        />
+        <select class="filter-select" onchange="state.ticketFilter.status=this.value;renderTicketTableOnly()">
+          <option value="All" ${state.ticketFilter.status === 'All' ? 'selected' : ''}>Status: All</option>
+          <option value="Open" ${state.ticketFilter.status === 'Open' ? 'selected' : ''}>Open</option>
+          <option value="In Progress" ${state.ticketFilter.status === 'In Progress' ? 'selected' : ''}>In Progress</option>
+          <option value="Resolved" ${state.ticketFilter.status === 'Resolved' ? 'selected' : ''}>Resolved</option>
+          <option value="Closed" ${state.ticketFilter.status === 'Closed' ? 'selected' : ''}>Closed</option>
+        </select>
+        <select class="filter-select" onchange="state.ticketFilter.priority=this.value;renderTicketTableOnly()">
+          <option value="All" ${state.ticketFilter.priority === 'All' ? 'selected' : ''}>Priority: All</option>
+          <option value="Critical" ${state.ticketFilter.priority === 'Critical' ? 'selected' : ''}>Critical</option>
+          <option value="High" ${state.ticketFilter.priority === 'High' ? 'selected' : ''}>High</option>
+          <option value="Medium" ${state.ticketFilter.priority === 'Medium' ? 'selected' : ''}>Medium</option>
+          <option value="Low" ${state.ticketFilter.priority === 'Low' ? 'selected' : ''}>Low</option>
+        </select>
+        <button class="outline-btn" onclick="state.ticketFilter={status:'All',priority:'All',query:''};render()">Reset Filters</button>
+      </div>
+    </div>
+
+    <div id="ticketsTableContainer">
+      ${ticketsTable(false)}
+    </div>
+  `;
+}
+
+function renderTicketTableOnly() {
+  const container = document.querySelector('#ticketsTableContainer');
+  if (container) {
+    container.innerHTML = ticketsTable(false);
+  }
+}
+
+// Leads / Sales Pipeline Page
+function leadsPage() {
+  const isSales = state.role === 'Sales Team';
+  const totalPipeline = db.leads.reduce((sum, l) => sum + (l.stage !== 'Closed Lost' ? l.dealValue : 0), 0);
+
+  const stages = ['New', 'Contacted', 'Qualified', 'Quotation Sent', 'Negotiation'];
+
+  return `
+    ${pageTop(
+      isSales ? 'My Sales Pipeline' : 'Lead & Deal Pipeline',
+      `Active pipeline value: ${formatINR(totalPipeline)} across ${db.leads.length} active opportunities.`,
+      `
+        <div class="module-actions">
+          <button class="outline-btn ${state.leadsViewMode === 'kanban' ? 'active' : ''}" onclick="state.leadsViewMode='kanban';render()">◫ Kanban Board</button>
+          <button class="outline-btn ${state.leadsViewMode === 'table' ? 'active' : ''}" onclick="state.leadsViewMode='table';render()">☰ Table List</button>
+          <button class="outline-btn" onclick="exportLeadsCSV()">⇩ Export CSV</button>
+          <button class="primary-btn" onclick="openForm('lead')">＋ New lead</button>
+        </div>
+      `
+    )}
+
+    ${state.leadsViewMode === 'kanban' ? `
+      <div class="kanban">
+        ${stages.map(stage => {
+          const columnLeads = db.leads.filter(l => l.stage === stage);
+          const stageTotal = columnLeads.reduce((sum, l) => sum + l.dealValue, 0);
+
+          return `
+            <div class="kanban-col" data-stage="${stage}" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event, '${stage}')">
+              <div class="kanban-head">
+                <div class="kanban-title">${stage} <span class="count">${columnLeads.length}</span></div>
+                <button class="link-btn" onclick="openForm('lead', '${stage}')" title="Add lead to ${stage}">＋</button>
+              </div>
+              <div class="kanban-col-total">${formatINR(stageTotal)}</div>
+              <div class="kanban-cards">
+                ${columnLeads.map(l => `
+                  <div class="lead-card" draggable="true" ondragstart="handleDragStart(event, '${l.id}')" onclick="openLeadDetail('${l.id}')">
+                    <b>${l.company}</b>
+                    <p>${l.contact} · ${l.source}</p>
+                    <div class="lead-foot">
+                      <span class="lead-val">${formatINR(l.dealValue)}</span>
+                      <span class="tiny-avatar">${l.assignedTo.split(' ').map(x => x[0]).join('')}</span>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    ` : `
+      <div class="card table-card">
+        <div class="card-head">
+          <h2>All Leads</h2>
+          <span class="subtitle">${db.leads.length} recorded opportunities</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Lead ID</th>
+                <th>Company</th>
+                <th>Contact</th>
+                <th>Deal Value</th>
+                <th>Stage</th>
+                <th>Source</th>
+                <th>Assigned Rep</th>
+                <th style="text-align:right;">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${db.leads.map(l => `
+                <tr>
+                  <td style="font-weight:700;color:var(--blue);cursor:pointer;" onclick="openLeadDetail('${l.id}')">${l.id}</td>
+                  <td><b>${l.company}</b></td>
+                  <td>${l.contact} <small style="display:block;color:var(--muted);">${l.email}</small></td>
+                  <td><b style="color:var(--green);">${formatINR(l.dealValue)}</b></td>
+                  <td><span class="badge open">${l.stage}</span></td>
+                  <td>${l.source}</td>
+                  <td>${l.assignedTo}</td>
+                  <td style="text-align:right;">
+                    <button class="outline-btn" style="padding:4px 8px;font-size:11px;" onclick="openLeadDetail('${l.id}')">Edit</button>
+                  </td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    `}
+  `;
+}
+
+// Drag and drop handler for Leads Kanban
+let draggedLeadId = null;
+
+function handleDragStart(e, leadId) {
+  draggedLeadId = leadId;
+  e.dataTransfer.setData('text/plain', leadId);
+  e.target.classList.add('dragging');
+}
+
+function handleDragOver(e) {
+  e.preventDefault();
+  e.currentTarget.classList.add('drag-over');
+}
+
+function handleDragLeave(e) {
+  e.currentTarget.classList.remove('drag-over');
+}
+
+function handleDrop(e, newStage) {
+  e.preventDefault();
+  e.currentTarget.classList.remove('drag-over');
+  if (!draggedLeadId) return;
+
+  const lead = db.leads.find(l => l.id === draggedLeadId);
+  if (lead && lead.stage !== newStage) {
+    const oldStage = lead.stage;
+    lead.stage = newStage;
+    saveDatabase();
+    logAudit(`Moved lead from ${oldStage} to ${newStage}`, lead.company);
+    showToast(`Lead ${lead.company} moved to ${newStage}`, 'success');
+    render();
+  }
+  draggedLeadId = null;
+}
+
+// Dealers Network Page
+function dealersPage() {
+  let list = db.dealers;
+  if (state.dealerFilter.region !== 'All') {
+    list = list.filter(d => d.region === state.dealerFilter.region);
+  }
+  if (state.dealerFilter.status !== 'All') {
+    list = list.filter(d => d.status === state.dealerFilter.status);
+  }
+
+  const pendingCount = db.dealers.filter(d => d.status === 'Pending').length;
+  const activeCount = db.dealers.filter(d => d.status === 'Active').length;
+  const totalRevenue = db.dealers.reduce((s, d) => s + d.revenue, 0);
+  const totalCreditUsed = db.dealers.reduce((s, d) => s + d.creditUsed, 0);
+
+  return `
+    ${pageTop(
+      'Authorized Dealer Network',
+      'Manage dealer onboarding, credit limits, regional distribution, and commercial performance.',
+      `
+        <div class="module-actions">
+          <button class="outline-btn" onclick="exportDealersCSV()">⇩ Export CSV</button>
+          <button class="primary-btn" onclick="openForm('dealer')">＋ Add dealer</button>
+        </div>
+      `
+    )}
+
+    <div class="metrics">
+      <article class="metric">
+        <div class="metric-head">Pending approvals <span class="metric-icon">⌛</span></div>
+        <div class="metric-value">0${pendingCount}</div>
+        <div class="trend ${pendingCount > 0 ? 'down' : ''}">${pendingCount > 0 ? 'Requires vetting' : 'All clear'}</div>
+      </article>
+      <article class="metric">
+        <div class="metric-head">Network revenue <span class="metric-icon">↗</span></div>
+        <div class="metric-value">${formatINR(totalRevenue)}</div>
+        <div class="trend">↑ 11.2% this quarter</div>
+      </article>
+      <article class="metric">
+        <div class="metric-head">Credit outstanding <span class="metric-icon">₹</span></div>
+        <div class="metric-value">${formatINR(totalCreditUsed)}</div>
+        <div class="trend down">Across active dealers</div>
+      </article>
+      <article class="metric">
+        <div class="metric-head">Active partners <span class="metric-icon">♧</span></div>
+        <div class="metric-value">${activeCount}</div>
+        <div class="trend">Across 5 regions</div>
+      </article>
+    </div>
+
+    <div class="card table-card">
+      <div class="card-head">
+        <div>
+          <h2>Partner Directory</h2>
+          <span class="subtitle">Showing ${list.length} partners</span>
+        </div>
+        <div class="module-actions">
+          <select class="filter-select" onchange="state.dealerFilter.region=this.value;render()">
+            <option value="All" ${state.dealerFilter.region === 'All' ? 'selected' : ''}>Region: All</option>
+            <option value="North" ${state.dealerFilter.region === 'North' ? 'selected' : ''}>North</option>
+            <option value="West" ${state.dealerFilter.region === 'West' ? 'selected' : ''}>West</option>
+            <option value="South" ${state.dealerFilter.region === 'South' ? 'selected' : ''}>South</option>
+            <option value="East" ${state.dealerFilter.region === 'East' ? 'selected' : ''}>East</option>
+            <option value="Central" ${state.dealerFilter.region === 'Central' ? 'selected' : ''}>Central</option>
+          </select>
+          <select class="filter-select" onchange="state.dealerFilter.status=this.value;render()">
+            <option value="All" ${state.dealerFilter.status === 'All' ? 'selected' : ''}>Status: All</option>
+            <option value="Active" ${state.dealerFilter.status === 'Active' ? 'selected' : ''}>Active</option>
+            <option value="Pending" ${state.dealerFilter.status === 'Pending' ? 'selected' : ''}>Pending</option>
+            <option value="Suspended" ${state.dealerFilter.status === 'Suspended' ? 'selected' : ''}>Suspended</option>
+          </select>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Company Name</th>
+              <th>Category</th>
+              <th>Region</th>
+              <th>Primary Contact</th>
+              <th>Revenue YTD</th>
+              <th>Credit Utilized</th>
+              <th>Status</th>
+              <th style="text-align:right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${list.map(d => `
+              <tr>
+                <td><b>${d.name}</b></td>
+                <td>${d.category}</td>
+                <td>${d.region}</td>
+                <td>${d.contact} <small style="display:block;color:var(--muted);">${d.phone}</small></td>
+                <td><b style="color:var(--blue);">${formatINR(d.revenue)}</b></td>
+                <td>${formatINR(d.creditUsed)} / ${formatINR(d.creditLimit)}</td>
+                <td><span class="badge ${d.status === 'Active' ? 'resolved' : d.status === 'Pending' ? 'pending' : 'critical'}">${d.status}</span></td>
+                <td style="text-align:right;">
+                  ${d.status === 'Pending' ? `
+                    <button class="primary-btn" style="padding:4px 8px;font-size:11px;" onclick="approveDealer('${d.id}')">✓ Approve</button>
+                  ` : `
+                    <button class="outline-btn" style="padding:4px 8px;font-size:11px;" onclick="openDealerDetail('${d.id}')">Manage</button>
+                  `}
+                </td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+
+function approveDealer(dealerId) {
+  const d = db.dealers.find(x => x.id === dealerId);
+  if (d) {
+    d.status = 'Active';
+    saveDatabase();
+    logAudit('Approved dealer onboarding', d.name);
+    addNotification('Dealer Approved', `${d.name} is now approved and active in the network.`, 'success');
+    render();
+  }
+}
+
+// Inventory & Spare Parts Control Page
+function inventoryPage() {
+  const urgentAlerts = db.inventory.filter(i => i.inStock <= i.minReorder);
+  const movements = [];
+  db.inventory.forEach(item => {
+    (item.movements || []).forEach(m => {
+      movements.push({ ...m, sku: item.sku, name: item.name });
+    });
+  });
+
+  return `
+    ${pageTop(
+      'Inventory & Spare Parts Control',
+      'Live warehouse stock counts, reorder thresholds, and maintenance spare parts ledger.',
+      `
+        <div class="module-actions">
+          <button class="outline-btn" onclick="exportInventoryCSV()">⇩ Export CSV</button>
+          <button class="outline-btn" onclick="openForm('newSKU')">＋ Add SKU</button>
+          <button class="primary-btn" onclick="openForm('stock')">＋ Stock inward / outward</button>
+        </div>
+      `
+    )}
+
+    <div class="inventory-grid">
+      <div>
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h2>Warehouse Stock by SKU</h2>
+              <span class="subtitle">Live balances across central & regional hubs</span>
+            </div>
+          </div>
+          ${db.inventory.map(s => {
+            const isLow = s.inStock <= s.minReorder;
+            const pct = Math.min(100, Math.round((s.inStock / (s.minReorder * 1.5)) * 100));
+
+            return `
+              <div class="stock-row">
+                <div>
+                  <b style="color:var(--blue);font-family:monospace;">${s.sku}</b>
+                  <small>${s.name}</small>
+                  <small style="color:var(--muted);">${s.warehouse}</small>
+                </div>
+                <div>
+                  <b style="font-size:15px;">${s.inStock}</b>
+                  <small>Min: ${s.minReorder}</small>
+                </div>
+                <div>
+                  <span class="badge ${isLow ? 'critical' : 'resolved'}">${isLow ? '⚠️ Reorder' : '✓ Adequate'}</span>
+                  <div class="progress-bar">
+                    <i class="${isLow ? 'warn' : ''}" style="width: ${pct}%"></i>
+                  </div>
+                </div>
+                <div style="text-align:right;">
+                  <button class="outline-btn" style="padding:4px 8px;font-size:11px;" onclick="quickStockAdjust('${s.sku}')">Adjust</button>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      </div>
+
+      <div>
+        <div class="card">
+          <div class="card-head">
+            <h2>Reorder Alerts</h2>
+            <span class="badge critical">${urgentAlerts.length} Action needed</span>
+          </div>
+          ${urgentAlerts.length === 0 ? `
+            <div style="padding:20px;text-align:center;color:var(--muted);font-size:13px;">All SKUs are operating above minimum safety thresholds.</div>
+          ` : urgentAlerts.map(a => `
+            <div class="alert-box">
+              <b>${a.name} (${a.sku})</b><br>
+              Current stock: <b>${a.inStock}</b> · Reorder threshold: <b>${a.minReorder}</b>
+              <div style="margin-top:6px;">
+                <button class="primary-btn" style="padding:3px 8px;font-size:10px;" onclick="openStockInwardModal('${a.sku}')">Inward Stock Now</button>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+
+        <div class="card" style="margin-top:20px;">
+          <div class="card-head">
+            <h2>Recent Stock Movements</h2>
+          </div>
+          <div class="timeline">
+            ${movements.slice(0, 5).map(m => `
+              <div class="timeline-item">
+                <b>${m.qty > 0 ? '+' : ''}${m.qty} units (${m.name})</b>
+                <small>${m.ref} · ${m.date} · ${m.note}</small>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// Analytics & Reports Page
+function reportsPage() {
+  return `
+    ${pageTop('Analytics & Executive Reports', 'Performance audits, operational velocity, and automated scheduled reporting.')}
+    <div class="dashboard-grid">
+      ${chart()}
+      ${statusWidget()}
+    </div>
+
+    <div class="card table-card">
+      <div class="card-head">
+        <div>
+          <h2>Automated Scheduled Reports</h2>
+          <span class="subtitle">Generated and delivered to stakeholders automatically</span>
+        </div>
+        <button class="primary-btn" onclick="openForm('report')">＋ Schedule report</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Report Name</th>
+              <th>Category</th>
+              <th>Cadence</th>
+              <th>Format</th>
+              <th>Recipient</th>
+              <th>Last Run</th>
+              <th>Status</th>
+              <th style="text-align:right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${db.scheduledReports.map(r => `
+              <tr>
+                <td><b>${r.name}</b></td>
+                <td>${r.type}</td>
+                <td>${r.freq}</td>
+                <td><span class="badge low">${r.format}</span></td>
+                <td>${r.recipient}</td>
+                <td>${r.lastRun}</td>
+                <td><span class="badge ${r.status === 'Active' ? 'resolved' : 'pending'}">${r.status}</span></td>
+                <td style="text-align:right;">
+                  <button class="outline-btn" style="padding:4px 8px;font-size:11px;" onclick="runReportNow('${r.id}')">Run Now</button>
+                </td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+
+function runReportNow(reportId) {
+  const r = db.scheduledReports.find(x => x.id === reportId);
+  if (r) {
+    r.lastRun = 'Just now';
+    saveDatabase();
+    logAudit('Executed automated report dispatch', r.name);
+    showToast(`Report "${r.name}" successfully generated & delivered!`, 'success');
+    render();
+  }
+}
+
+// Team & Roles Page
+function teamPage() {
+  return `
+    ${pageTop(
+      'Team & Permissions',
+      'Manage team members, branches, and role-based access control policies.',
+      `<button class="primary-btn" onclick="openForm('inviteUser')">＋ Invite team member</button>`
+    )}
+
+    <div class="card table-card">
+      <div class="card-head">
+        <h2>Active Organization Members (${db.users.length})</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Member Name</th>
+              <th>Email</th>
+              <th>Assigned Role</th>
+              <th>Department</th>
+              <th>Branch / Location</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${db.users.map(u => `
+              <tr>
+                <td>
+                  <span class="person">
+                    <span class="tiny-avatar">${u.name.split(' ').map(x => x[0]).join('')}</span>
+                    <b>${u.name}</b>
+                  </span>
+                </td>
+                <td>${u.email}</td>
+                <td><span class="badge open">${u.role}</span></td>
+                <td>${u.dept}</td>
+                <td>${u.branch}</td>
+                <td><span class="badge ${u.status === 'Active' ? 'resolved' : 'pending'}">${u.status}</span></td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <div class="card-head">
+        <h2>Role Hierarchy & Scope Enforcement</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <b>Master Admin</b>
+          <small>Cross-tenant control plane, companies, billing, and platform audit logs.</small>
+        </div>
+        <div class="timeline-item">
+          <b>Super Admin</b>
+          <small>Full enterprise tenant access, complaint resolution, dealer approvals, stock movements, and system configuration.</small>
+        </div>
+        <div class="timeline-item">
+          <b>Admin (Branch Manager)</b>
+          <small>Branch-level operational management, local tickets, leads pipeline, and inventory audits.</small>
+        </div>
+        <div class="timeline-item">
+          <b>Sales Team</b>
+          <small>Assigned leads, deal progression Kanban, dealer submissions, and SKU stock availability.</small>
+        </div>
+        <div class="timeline-item">
+          <b>Field Technician</b>
+          <small>Daily service routes, customer issue notes, SLA timers, and spare parts requisition.</small>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// Audit Logs Page
+function auditLogsPage() {
+  return `
+    ${pageTop('Security & Operational Audit Logs', 'Immutable record of user actions, data exports, and configuration changes.')}
+    <div class="card table-card">
+      <div class="card-head">
+        <h2>System Activity Stream</h2>
+        <button class="outline-btn" onclick="exportAuditLogsCSV()">⇩ Export Audit Log</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Log ID</th>
+              <th>Timestamp</th>
+              <th>Actor</th>
+              <th>Role</th>
+              <th>Action Executed</th>
+              <th>Target Entity</th>
+              <th>IP Address</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${db.auditLogs.map(a => `
+              <tr>
+                <td style="font-family:monospace;font-weight:700;">${a.id}</td>
+                <td>${a.time}</td>
+                <td><b>${a.user}</b></td>
+                <td><span class="badge open">${a.role}</span></td>
+                <td>${a.action}</td>
+                <td><b>${a.target}</b></td>
+                <td><code style="font-size:11px;">${a.ip}</code></td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+
+// Settings Page
+function settingsPage() {
+  return `
+    ${pageTop('Workspace & Security Settings', 'Manage organization profile, security policies, data backups, and theme.')}
+    <div class="dashboard-grid">
+      <div class="card">
+        <div class="card-head">
+          <h2>Enterprise Profile</h2>
+        </div>
+        <div style="padding:20px;">
+          <div class="field">
+            <label>Organization Legal Name</label>
+            <input value="Acme India Enterprises Pvt Ltd" id="cfgOrgName">
+          </div>
+          <div class="field-grid">
+            <div class="field">
+              <label>Default Currency</label>
+              <input value="INR (₹)" disabled>
+            </div>
+            <div class="field">
+              <label>Timezone</label>
+              <input value="Asia/Kolkata (IST +5:30)" disabled>
+            </div>
+          </div>
+          <div class="field">
+            <label>Support Escalation Email</label>
+            <input value="support@acme.test" id="cfgOrgEmail">
+          </div>
+          <button class="primary-btn" onclick="saveOrgSettings()">Save Changes</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2>Security & Session Posture</h2>
+          <span class="badge resolved">Protected</span>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <b>Two-Factor Authentication (2FA)</b>
+            <small>Enforced for Super Admin and Branch Admin roles.</small>
+          </div>
+          <div class="timeline-item">
+            <b>Session Inactivity Policy</b>
+            <small>Auto session invalidation after 30 minutes of idle time.</small>
+          </div>
+          <div class="timeline-item">
+            <b>Local Storage State</b>
+            <small>Live JSON persistence active in browser storage.</small>
+          </div>
+        </div>
+        <div style="padding:0 20px 20px;display:flex;gap:10px;">
+          <button class="outline-btn" onclick="exportDataBackup()">💾 Backup Database</button>
+          <button class="outline-btn text-danger" onclick="resetDemoData()">🔄 Reset Data</button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function saveOrgSettings() {
+  logAudit('Updated enterprise profile settings', 'Acme India');
+  showToast('Organization settings updated successfully', 'success');
+}
+
+// Modal & Forms Engine
+function openForm(type, param = '') {
+  const content = document.querySelector('#modalContent');
+
+  if (type === 'ticket') {
+    content.innerHTML = `
+      <h2>Create Service Ticket</h2>
+      <p>Log a new customer complaint or technical service request.</p>
+      <form id="createTicketForm">
+        <div class="field">
+          <label>Customer / Company Name *</label>
+          <input id="tCustomer" placeholder="e.g. Apex Industrial Systems" required autofocus>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label>Contact Person</label>
+            <input id="tContact" placeholder="e.g. Ramesh Kumar">
+          </div>
+          <div class="field">
+            <label>Phone / Email</label>
+            <input id="tPhone" placeholder="+91 98765 00000">
+          </div>
+        </div>
+        <div class="field">
+          <label>Issue Subject *</label>
+          <input id="tSubject" placeholder="e.g. Motor overheating during start sequence" required>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label>Category</label>
+            <select id="tCategory">
+              <option>Motor</option>
+              <option>Electronics</option>
+              <option>Hydraulics</option>
+              <option>Warranty</option>
+              <option>Installation</option>
+              <option>Maintenance</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Priority</label>
+            <select id="tPriority">
+              <option>High</option>
+              <option>Critical</option>
+              <option selected>Medium</option>
+              <option>Low</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Assign Technician</label>
+          <select id="tAssignee">
+            <option>Karan Mehta</option>
+            <option>Pooja Hegde</option>
+            <option>Unassigned</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Issue Description & Symptoms</label>
+          <textarea id="tDesc" rows="3" placeholder="Provide detailed operational symptoms..."></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="outline-btn" onclick="hideModal()">Cancel</button>
+          <button type="submit" class="primary-btn">Create Ticket</button>
+        </div>
+      </form>
+    `;
+    showModal();
+    document.querySelector('#createTicketForm').onsubmit = (e) => {
+      e.preventDefault();
+      const newTicket = {
+        id: 'TCK-' + (1090 + db.tickets.length),
+        customer: document.querySelector('#tCustomer').value,
+        contactPerson: document.querySelector('#tContact').value || 'Customer Rep',
+        phone: document.querySelector('#tPhone').value || '',
+        subject: document.querySelector('#tSubject').value,
+        category: document.querySelector('#tCategory').value,
+        priority: document.querySelector('#tPriority').value,
+        status: 'Open',
+        assignedTo: document.querySelector('#tAssignee').value,
+        slaDeadline: '4h 00m',
+        createdAt: 'Just now',
+        description: document.querySelector('#tDesc').value || 'Service request registered.',
+        comments: [{ author: state.currentUser ? state.currentUser.name : state.role, text: 'Ticket logged.', time: 'Just now' }],
+        partsUsed: []
+      };
+      db.tickets.unshift(newTicket);
+      saveDatabase();
+      logAudit('Created service ticket', newTicket.id);
+      addNotification('New Ticket Logged', `${newTicket.id} - ${newTicket.customer}`, 'info');
+      hideModal();
+      render();
+    };
+    return;
+  }
+
+  if (type === 'lead') {
+    content.innerHTML = `
+      <h2>Create Sales Lead</h2>
+      <p>Track a new commercial opportunity in your sales pipeline.</p>
+      <form id="createLeadForm">
+        <div class="field">
+          <label>Company / Account Name *</label>
+          <input id="lCompany" placeholder="e.g. Bharat Dynamics Ltd" required autofocus>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label>Contact Person</label>
+            <input id="lContact" placeholder="e.g. Sneha Patel">
+          </div>
+          <div class="field">
+            <label>Phone / Email</label>
+            <input id="lEmail" placeholder="contact@bharatdynamics.in">
+          </div>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label>Estimated Value (₹ INR) *</label>
+            <input id="lValue" type="number" placeholder="250000" required>
+          </div>
+          <div class="field">
+            <label>Pipeline Stage</label>
+            <select id="lStage">
+              <option ${param === 'New' || !param ? 'selected' : ''}>New</option>
+              <option ${param === 'Contacted' ? 'selected' : ''}>Contacted</option>
+              <option ${param === 'Qualified' ? 'selected' : ''}>Qualified</option>
+              <option ${param === 'Quotation Sent' ? 'selected' : ''}>Quotation Sent</option>
+              <option ${param === 'Negotiation' ? 'selected' : ''}>Negotiation</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Lead Source</label>
+          <select id="lSource">
+            <option>Website</option>
+            <option>Exhibition</option>
+            <option>Referral</option>
+            <option>Cold call</option>
+            <option>Dealer referral</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Notes & Next Action</label>
+          <textarea id="lNotes" rows="2" placeholder="Key discussion points..."></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="outline-btn" onclick="hideModal()">Cancel</button>
+          <button type="submit" class="primary-btn">Save Lead</button>
+        </div>
+      </form>
+    `;
+    showModal();
+    document.querySelector('#createLeadForm').onsubmit = (e) => {
+      e.preventDefault();
+      const newLead = {
+        id: 'LEAD-' + (100 + db.leads.length + 1),
+        company: document.querySelector('#lCompany').value,
+        contact: document.querySelector('#lContact').value || 'Purchasing Head',
+        email: document.querySelector('#lEmail').value || '',
+        dealValue: Number(document.querySelector('#lValue').value) || 100000,
+        stage: document.querySelector('#lStage').value,
+        source: document.querySelector('#lSource').value,
+        notes: document.querySelector('#lNotes').value || 'Lead captured.',
+        assignedTo: 'Vikram Malhotra',
+        createdAt: 'Just now'
+      };
+      db.leads.unshift(newLead);
+      saveDatabase();
+      logAudit('Created sales opportunity', `${newLead.company} (${formatINR(newLead.dealValue)})`);
+      showToast(`Lead created for ${newLead.company}`, 'success');
+      hideModal();
+      render();
+    };
+    return;
+  }
+
+  if (type === 'dealer') {
+    content.innerHTML = `
+      <h2>Add Authorized Dealer / Partner</h2>
+      <p>Register a new regional partner into the distributor network.</p>
+      <form id="createDealerForm">
+        <div class="field">
+          <label>Dealer / Enterprise Name *</label>
+          <input id="dName" placeholder="e.g. Konkan Industrial Distributors" required autofocus>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label>Primary Contact Person</label>
+            <input id="dContact" placeholder="e.g. Suresh Prabhu">
+          </div>
+          <div class="field">
+            <label>Phone Number</label>
+            <input id="dPhone" placeholder="+91 98200 11223">
+          </div>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label>Category</label>
+            <select id="dCategory">
+              <option>Distributor</option>
+              <option selected>Dealer</option>
+              <option>Sub-dealer</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Region</label>
+            <select id="dRegion">
+              <option>North</option>
+              <option selected>West</option>
+              <option>South</option>
+              <option>East</option>
+              <option>Central</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Approved Credit Limit (₹ INR)</label>
+          <input id="dCredit" type="number" value="1000000">
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="outline-btn" onclick="hideModal()">Cancel</button>
+          <button type="submit" class="primary-btn">Submit for Onboarding</button>
+        </div>
+      </form>
+    `;
+    showModal();
+    document.querySelector('#createDealerForm').onsubmit = (e) => {
+      e.preventDefault();
+      const newDealer = {
+        id: 'DLR-' + (300 + db.dealers.length + 1),
+        name: document.querySelector('#dName').value,
+        contact: document.querySelector('#dContact').value || 'Director',
+        phone: document.querySelector('#dPhone').value || '',
+        category: document.querySelector('#dCategory').value,
+        region: document.querySelector('#dRegion').value,
+        revenue: 0,
+        creditLimit: Number(document.querySelector('#dCredit').value) || 500000,
+        creditUsed: 0,
+        status: 'Active',
+        onboardingDate: 'Just now'
+      };
+      db.dealers.unshift(newDealer);
+      saveDatabase();
+      logAudit('Onboarded new dealer', newDealer.name);
+      showToast(`Partner ${newDealer.name} added to network`, 'success');
+      hideModal();
+      render();
+    };
+    return;
+  }
+
+  if (type === 'stock') {
+    content.innerHTML = `
+      <h2>Stock Inward / Outward Adjustment</h2>
+      <p>Record factory deliveries, warehouse transfers, or stock write-offs.</p>
+      <form id="stockForm">
+        <div class="field">
+          <label>Select SKU / Product *</label>
+          <select id="sSku">
+            ${db.inventory.map(item => `
+              <option value="${item.sku}">${item.sku} — ${item.name} (Current: ${item.inStock})</option>
+            `).join('')}
+          </select>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label>Movement Type</label>
+            <select id="sType">
+              <option value="Inward">Inward (+ Inflow)</option>
+              <option value="Outward">Outward (- Outflow)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Quantity Units *</label>
+            <input id="sQty" type="number" min="1" value="10" required>
+          </div>
+        </div>
+        <div class="field">
+          <label>Reference Number (PO / Transfer / Ticket)</label>
+          <input id="sRef" placeholder="e.g. PO-2045 or Delivery Note">
+        </div>
+        <div class="field">
+          <label>Notes / Reason</label>
+          <input id="sNote" placeholder="e.g. Batch intake from Pune factory">
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="outline-btn" onclick="hideModal()">Cancel</button>
+          <button type="submit" class="primary-btn">Record Stock Movement</button>
+        </div>
+      </form>
+    `;
+    showModal();
+    document.querySelector('#stockForm').onsubmit = (e) => {
+      e.preventDefault();
+      const sku = document.querySelector('#sSku').value;
+      const type = document.querySelector('#sType').value;
+      const qty = Number(document.querySelector('#sQty').value) * (type === 'Outward' ? -1 : 1);
+      const ref = document.querySelector('#sRef').value || 'ADJ-' + Date.now().toString().slice(-4);
+      const note = document.querySelector('#sNote').value || 'Manual stock entry';
+
+      const item = db.inventory.find(i => i.sku === sku);
+      if (item) {
+        item.inStock = Math.max(0, item.inStock + qty);
+        if (!item.movements) item.movements = [];
+        item.movements.unshift({
+          date: 'Just now',
+          type: type,
+          qty: qty,
+          ref: ref,
+          note: note
+        });
+        saveDatabase();
+        logAudit(`Recorded ${type} of ${Math.abs(qty)} units`, `${item.sku} (${item.name})`);
+        showToast(`Stock updated: ${item.name} balance is now ${item.inStock}`, 'success');
+        hideModal();
+        render();
+      }
+    };
+    return;
+  }
+
+  if (type === 'newSKU') {
+    content.innerHTML = `
+      <h2>Register New SKU Product</h2>
+      <p>Add a new part or finished assembly into the system catalogue.</p>
+      <form id="newSkuForm">
+        <div class="field">
+          <label>SKU Code *</label>
+          <input id="skuCode" placeholder="e.g. ORB-DRV-400" required autofocus>
+        </div>
+        <div class="field">
+          <label>Product / Part Title *</label>
+          <input id="skuName" placeholder="e.g. Variable Frequency Drive 10HP" required>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label>Category</label>
+            <select id="skuCat">
+              <option>Motors</option>
+              <option>Electronics</option>
+              <option>Mechanical</option>
+              <option>Electrical</option>
+              <option>Hydraulics</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Warehouse</label>
+            <select id="skuWh">
+              <option>Central Warehouse (Mumbai)</option>
+              <option>Pune Regional Hub</option>
+              <option>Delhi Hub</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label>Initial Stock Quantity</label>
+            <input id="skuQty" type="number" value="20" required>
+          </div>
+          <div class="field">
+            <label>Minimum Reorder Threshold</label>
+            <input id="skuMin" type="number" value="25" required>
+          </div>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label>Unit Cost (₹ INR)</label>
+            <input id="skuCost" type="number" value="5000">
+          </div>
+          <div class="field">
+            <label>Sale Price (₹ INR)</label>
+            <input id="skuPrice" type="number" value="8500">
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="outline-btn" onclick="hideModal()">Cancel</button>
+          <button type="submit" class="primary-btn">Save SKU</button>
+        </div>
+      </form>
+    `;
+    showModal();
+    document.querySelector('#newSkuForm').onsubmit = (e) => {
+      e.preventDefault();
+      const newSku = {
+        sku: document.querySelector('#skuCode').value.trim().toUpperCase(),
+        name: document.querySelector('#skuName').value,
+        category: document.querySelector('#skuCat').value,
+        warehouse: document.querySelector('#skuWh').value,
+        inStock: Number(document.querySelector('#skuQty').value) || 0,
+        minReorder: Number(document.querySelector('#skuMin').value) || 10,
+        unitCost: Number(document.querySelector('#skuCost').value) || 1000,
+        price: Number(document.querySelector('#skuPrice').value) || 1500,
+        movements: [
+          { date: 'Just now', type: 'Inward', qty: Number(document.querySelector('#skuQty').value) || 0, ref: 'INIT', note: 'Initial catalogue registration' }
+        ]
+      };
+      db.inventory.push(newSku);
+      saveDatabase();
+      logAudit('Added new product SKU', newSku.sku);
+      showToast(`SKU ${newSku.sku} created successfully`, 'success');
+      hideModal();
+      render();
+    };
+    return;
+  }
+
+  if (type === 'inviteUser') {
+    content.innerHTML = `
+      <h2>Invite Team Member</h2>
+      <p>Provision role-based access for an employee or technician.</p>
+      <form id="inviteUserForm">
+        <div class="field">
+          <label>Full Name *</label>
+          <input id="uName" placeholder="e.g. Rahul Sharma" required autofocus>
+        </div>
+        <div class="field">
+          <label>Work Email Address *</label>
+          <input id="uEmail" type="email" placeholder="rahul@acme.test" required>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label>Role</label>
+            <select id="uRole">
+              <option>Admin</option>
+              <option>Sales Team</option>
+              <option selected>Technician</option>
+              <option>Super Admin</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Department</label>
+            <input id="uDept" placeholder="Field Service / Sales">
+          </div>
+        </div>
+        <div class="field">
+          <label>Branch / Work Location</label>
+          <input id="uBranch" placeholder="Mumbai / Pune / Delhi">
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="outline-btn" onclick="hideModal()">Cancel</button>
+          <button type="submit" class="primary-btn">Send Invite</button>
+        </div>
+      </form>
+    `;
+    showModal();
+    document.querySelector('#inviteUserForm').onsubmit = (e) => {
+      e.preventDefault();
+      const newUser = {
+        id: 'USR-' + (db.users.length + 1).toString().padStart(2, '0'),
+        name: document.querySelector('#uName').value,
+        email: document.querySelector('#uEmail').value,
+        role: document.querySelector('#uRole').value,
+        dept: document.querySelector('#uDept').value || 'Operations',
+        branch: document.querySelector('#uBranch').value || 'HQ (Mumbai)',
+        status: 'Active'
+      };
+      db.users.push(newUser);
+      saveDatabase();
+      logAudit('Invited new team member', `${newUser.name} (${newUser.role})`);
+      showToast(`Invitation sent to ${newUser.email}`, 'success');
+      hideModal();
+      render();
+    };
+    return;
+  }
+
+  if (type === 'report') {
+    content.innerHTML = `
+      <h2>Schedule Automated Report</h2>
+      <p>Configure automated intelligence summaries delivered via email.</p>
+      <form id="schedReportForm">
+        <div class="field">
+          <label>Report Title *</label>
+          <input id="rName" placeholder="e.g. Weekly Branch Operations Health" required autofocus>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label>Report Type</label>
+            <select id="rType">
+              <option>Service & SLA</option>
+              <option>Sales & Pipeline</option>
+              <option>Inventory Movement</option>
+              <option>Dealer Commercials</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Cadence Frequency</label>
+            <select id="rFreq">
+              <option>Daily</option>
+              <option selected>Weekly</option>
+              <option>Monthly</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label>Output Format</label>
+            <select id="rFormat">
+              <option>PDF Document</option>
+              <option>CSV Spreadsheet</option>
+              <option>Excel Workbook</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Recipient Email *</label>
+            <input id="rRecip" type="email" value="management@acme.test" required>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="outline-btn" onclick="hideModal()">Cancel</button>
+          <button type="submit" class="primary-btn">Create Schedule</button>
+        </div>
+      </form>
+    `;
+    showModal();
+    document.querySelector('#schedReportForm').onsubmit = (e) => {
+      e.preventDefault();
+      const newRep = {
+        id: 'REP-' + (db.scheduledReports.length + 1).toString().padStart(2, '0'),
+        name: document.querySelector('#rName').value,
+        type: document.querySelector('#rType').value,
+        freq: document.querySelector('#rFreq').value,
+        format: document.querySelector('#rFormat').value.split(' ')[0],
+        recipient: document.querySelector('#rRecip').value,
+        status: 'Active',
+        lastRun: 'Pending initial run'
+      };
+      db.scheduledReports.push(newRep);
+      saveDatabase();
+      logAudit('Scheduled automated report', newRep.name);
+      showToast(`Report schedule "${newRep.name}" created`, 'success');
+      hideModal();
+      render();
+    };
+    return;
+  }
+}
+
+// Ticket Details Drawer / Modal
+function openTicketDetail(ticketId) {
+  const t = db.tickets.find(x => x.id === ticketId);
+  if (!t) return;
+
+  const content = document.querySelector('#modalContent');
+  content.innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+      <div>
+        <span class="badge ${t.priority.toLowerCase()}">${t.priority}</span>
+        <span class="badge ${t.status.toLowerCase().replace(' ', '')}" style="margin-left:6px;">${t.status}</span>
+      </div>
+      <b style="font-family:monospace;color:var(--blue);font-size:16px;">${t.id}</b>
+    </div>
+
+    <h2>${t.subject}</h2>
+    <p><b>Customer:</b> ${t.customer} (${t.contactPerson} · ${t.phone})</p>
+
+    <div style="background:var(--line-light);padding:14px;border-radius:var(--radius-sm);margin:16px 0;font-size:13px;">
+      <b>Issue Description:</b>
+      <p style="margin-top:4px;color:var(--ink);">${t.description}</p>
+    </div>
+
+    <div class="field-grid">
+      <div class="field">
+        <label>Update Status</label>
+        <select id="dtStatus" onchange="updateTicketStatus('${t.id}', this.value)">
+          <option ${t.status === 'Open' ? 'selected' : ''}>Open</option>
+          <option ${t.status === 'In Progress' ? 'selected' : ''}>In Progress</option>
+          <option ${t.status === 'Resolved' ? 'selected' : ''}>Resolved</option>
+          <option ${t.status === 'Closed' ? 'selected' : ''}>Closed</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Assigned Rep</label>
+        <select id="dtAssign" onchange="updateTicketAssignee('${t.id}', this.value)">
+          <option ${t.assignedTo === 'Karan Mehta' ? 'selected' : ''}>Karan Mehta</option>
+          <option ${t.assignedTo === 'Pooja Hegde' ? 'selected' : ''}>Pooja Hegde</option>
+        </select>
+      </div>
+    </div>
+
+    <div style="margin-top:16px;">
+      <h3 style="font-size:14px;margin-bottom:8px;">Service Activity & Notes</h3>
+      <div class="timeline" style="padding:0 0 10px 10px;">
+        ${(t.comments || []).map(c => `
+          <div class="timeline-item">
+            <b>${c.author} · ${c.time}</b>
+            <small>${c.text}</small>
+          </div>
+        `).join('')}
+      </div>
+
+      <div style="display:flex;gap:8px;margin-top:10px;">
+        <input id="newCommentText" placeholder="Add technical service note..." style="flex:1;padding:8px 10px;border:1px solid var(--line);border-radius:var(--radius-sm);font-size:12px;">
+        <button class="primary-btn" onclick="addTicketComment('${t.id}')">Add Note</button>
+      </div>
+    </div>
+
+    <div style="margin-top:20px;border-top:1px solid var(--line);padding-top:16px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <h3 style="font-size:14px;">Spare Parts Used</h3>
+        <button class="outline-btn" style="padding:4px 8px;font-size:11px;" onclick="requestPartsForTicket('${t.id}')">＋ Requisition Part</button>
+      </div>
+      <ul style="margin:8px 0 0 18px;font-size:12px;color:var(--ink-secondary);">
+        ${(t.partsUsed && t.partsUsed.length > 0) ? t.partsUsed.map(p => `<li>${p}</li>`).join('') : '<li>No spare parts logged for this ticket yet.</li>'}
+      </ul>
+    </div>
+
+    <div class="modal-actions" style="justify-content:space-between;">
+      <button class="danger-btn" style="padding:6px 12px;font-size:11px;" onclick="deleteTicket('${t.id}')">Delete Ticket</button>
+      <button class="primary-btn" onclick="hideModal()">Done</button>
+    </div>
+  `;
+  showModal();
+}
+
+function updateTicketStatus(ticketId, newStatus) {
+  const t = db.tickets.find(x => x.id === ticketId);
+  if (t) {
+    t.status = newStatus;
+    if (newStatus === 'Resolved' || newStatus === 'Closed') t.slaDeadline = 'Met';
+    t.comments.push({ author: state.currentUser ? state.currentUser.name : state.role, text: `Status updated to ${newStatus}`, time: 'Just now' });
+    saveDatabase();
+    logAudit(`Updated ticket status to ${newStatus}`, t.id);
+    showToast(`Ticket ${t.id} marked as ${newStatus}`, 'success');
+    render();
+  }
+}
+
+function updateTicketAssignee(ticketId, newRep) {
+  const t = db.tickets.find(x => x.id === ticketId);
+  if (t) {
+    t.assignedTo = newRep;
+    t.comments.push({ author: state.currentUser ? state.currentUser.name : state.role, text: `Reassigned to ${newRep}`, time: 'Just now' });
+    saveDatabase();
+    logAudit(`Reassigned ticket to ${newRep}`, t.id);
+    showToast(`Assigned ${t.id} to ${newRep}`, 'info');
+    render();
+  }
+}
+
+function addTicketComment(ticketId) {
+  const input = document.querySelector('#newCommentText');
+  if (!input || !input.value.trim()) return;
+
+  const t = db.tickets.find(x => x.id === ticketId);
+  if (t) {
+    if (!t.comments) t.comments = [];
+    t.comments.push({
+      author: state.currentUser ? state.currentUser.name : state.role,
+      text: input.value.trim(),
+      time: 'Just now'
+    });
+    saveDatabase();
+    openTicketDetail(ticketId);
+    showToast('Service note added', 'success');
+  }
+}
+
+function requestPartsForTicket(ticketId) {
+  const t = db.tickets.find(x => x.id === ticketId);
+  if (!t) return;
+
+  const availableParts = db.inventory.filter(i => i.inStock > 0);
+  if (availableParts.length === 0) {
+    showToast('No spare parts available in warehouse stock!', 'error');
+    return;
+  }
+
+  const part = availableParts[0];
+  part.inStock -= 1;
+  if (!t.partsUsed) t.partsUsed = [];
+  t.partsUsed.push(`${part.name} (${part.sku}) x 1`);
+  if (!part.movements) part.movements = [];
+  part.movements.unshift({ date: 'Just now', type: 'Outward', qty: -1, ref: t.id, note: `Requisitioned for ${t.customer}` });
+
+  saveDatabase();
+  logAudit(`Deducted 1 unit of ${part.sku} for ticket`, t.id);
+  showToast(`Requisitioned 1 unit of ${part.name}`, 'success');
+  openTicketDetail(ticketId);
+  render();
+}
+
+function deleteTicket(ticketId) {
+  if (confirm(`Are you sure you want to permanently delete ticket ${ticketId}?`)) {
+    db.tickets = db.tickets.filter(x => x.id !== ticketId);
+    saveDatabase();
+    logAudit('Deleted service ticket', ticketId);
+    showToast(`Ticket ${ticketId} deleted`, 'info');
+    hideModal();
+    render();
+  }
+}
+
+// Lead Details & Edit Modal
+function openLeadDetail(leadId) {
+  const l = db.leads.find(x => x.id === leadId);
+  if (!l) return;
+
+  const content = document.querySelector('#modalContent');
+  content.innerHTML = `
+    <h2>${l.company}</h2>
+    <p>Deal Pipeline Record · ID: <b>${l.id}</b></p>
+    <form id="editLeadForm">
+      <div class="field-grid">
+        <div class="field">
+          <label>Contact Person</label>
+          <input id="edLContact" value="${l.contact}">
+        </div>
+        <div class="field">
+          <label>Phone / Email</label>
+          <input id="edLEmail" value="${l.email || l.phone}">
+        </div>
+      </div>
+      <div class="field-grid">
+        <div class="field">
+          <label>Deal Value (₹ INR)</label>
+          <input id="edLVal" type="number" value="${l.dealValue}">
+        </div>
+        <div class="field">
+          <label>Current Stage</label>
+          <select id="edLStage">
+            <option ${l.stage === 'New' ? 'selected' : ''}>New</option>
+            <option ${l.stage === 'Contacted' ? 'selected' : ''}>Contacted</option>
+            <option ${l.stage === 'Qualified' ? 'selected' : ''}>Qualified</option>
+            <option ${l.stage === 'Quotation Sent' ? 'selected' : ''}>Quotation Sent</option>
+            <option ${l.stage === 'Negotiation' ? 'selected' : ''}>Negotiation</option>
+            <option ${l.stage === 'Closed Won' ? 'selected' : ''}>Closed Won</option>
+            <option ${l.stage === 'Closed Lost' ? 'selected' : ''}>Closed Lost</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label>Discussion Notes</label>
+        <textarea id="edLNotes" rows="3">${l.notes || ''}</textarea>
+      </div>
+      <div class="modal-actions" style="justify-content:space-between;">
+        <button type="button" class="danger-btn" onclick="deleteLead('${l.id}')">Delete Lead</button>
+        <div>
+          <button type="button" class="outline-btn" onclick="hideModal()">Cancel</button>
+          <button type="submit" class="primary-btn">Save Changes</button>
+        </div>
+      </div>
+    </form>
+  `;
+  showModal();
+
+  document.querySelector('#editLeadForm').onsubmit = (e) => {
+    e.preventDefault();
+    l.contact = document.querySelector('#edLContact').value;
+    l.email = document.querySelector('#edLEmail').value;
+    l.dealValue = Number(document.querySelector('#edLVal').value) || l.dealValue;
+    l.stage = document.querySelector('#edLStage').value;
+    l.notes = document.querySelector('#edLNotes').value;
+    saveDatabase();
+    logAudit('Updated lead details', `${l.company} (${l.stage})`);
+    showToast(`Lead ${l.company} updated`, 'success');
+    hideModal();
+    render();
+  };
+}
+
+function deleteLead(leadId) {
+  if (confirm('Delete this sales lead?')) {
+    db.leads = db.leads.filter(x => x.id !== leadId);
+    saveDatabase();
+    logAudit('Deleted sales lead', leadId);
+    showToast('Lead deleted from pipeline', 'info');
+    hideModal();
+    render();
+  }
+}
+
+// Dealer Details Modal
+function openDealerDetail(dealerId) {
+  const d = db.dealers.find(x => x.id === dealerId);
+  if (!d) return;
+
+  const content = document.querySelector('#modalContent');
+  content.innerHTML = `
+    <h2>${d.name}</h2>
+    <p>${d.category} · ${d.region} Region · Onboarded: ${d.onboardingDate}</p>
+    <div class="field-grid">
+      <div class="field">
+        <label>Contact Person</label>
+        <input id="edDContact" value="${d.contact}">
+      </div>
+      <div class="field">
+        <label>Contact Phone</label>
+        <input id="edDPhone" value="${d.phone}">
+      </div>
+    </div>
+    <div class="field-grid">
+      <div class="field">
+        <label>Credit Limit (₹ INR)</label>
+        <input id="edDCredit" type="number" value="${d.creditLimit}">
+      </div>
+      <div class="field">
+        <label>Partner Status</label>
+        <select id="edDStatus">
+          <option ${d.status === 'Active' ? 'selected' : ''}>Active</option>
+          <option ${d.status === 'Pending' ? 'selected' : ''}>Pending</option>
+          <option ${d.status === 'Suspended' ? 'selected' : ''}>Suspended</option>
+        </select>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button type="button" class="outline-btn" onclick="hideModal()">Cancel</button>
+      <button type="button" class="primary-btn" onclick="saveDealerDetails('${d.id}')">Save Changes</button>
+    </div>
+  `;
+  showModal();
+}
+
+function saveDealerDetails(dealerId) {
+  const d = db.dealers.find(x => x.id === dealerId);
+  if (d) {
+    d.contact = document.querySelector('#edDContact').value;
+    d.phone = document.querySelector('#edDPhone').value;
+    d.creditLimit = Number(document.querySelector('#edDCredit').value) || d.creditLimit;
+    d.status = document.querySelector('#edDStatus').value;
+    saveDatabase();
+    logAudit('Updated partner commercial terms', d.name);
+    showToast(`Dealer ${d.name} updated`, 'success');
+    hideModal();
+    render();
+  }
+}
+
+// Quick Inward Modal
+function openStockInwardModal(sku) {
+  openForm('stock');
+  setTimeout(() => {
+    const sSku = document.querySelector('#sSku');
+    if (sSku) sSku.value = sku;
+  }, 50);
+}
+
+function quickStockAdjust(sku) {
+  const qty = prompt(`Enter stock quantity adjustment for SKU ${sku} (positive for addition, negative for deduction):`, '10');
+  if (qty && !isNaN(qty)) {
+    const item = db.inventory.find(i => i.sku === sku);
+    if (item) {
+      item.inStock = Math.max(0, item.inStock + Number(qty));
+      if (!item.movements) item.movements = [];
+      item.movements.unshift({
+        date: 'Just now',
+        type: Number(qty) >= 0 ? 'Inward' : 'Outward',
+        qty: Number(qty),
+        ref: 'MANUAL',
+        note: 'Direct quick stock count adjustment'
+      });
+      saveDatabase();
+      logAudit(`Directly adjusted stock by ${qty} units`, sku);
+      showToast(`${item.name} stock adjusted to ${item.inStock} units`, 'success');
+      render();
+    }
+  }
+}
+
+// CSV Export Utility Functions
+function downloadCSV(filename, headers, rows) {
+  const csvContent = 'data:text/csv;charset=utf-8,' +
+    [headers.join(','), ...rows.map(e => e.map(x => `"${String(x || '').replace(/"/g, '""')}"`).join(','))].join('\n');
+  const encodedUri = encodeURI(csvContent);
+  const link = document.createElement('a');
+  link.setAttribute('href', encodedUri);
+  link.setAttribute('download', filename);
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  logAudit(`Exported data download (${filename})`, 'CSV Exporter');
+  showToast(`Downloaded ${filename}`, 'success');
+}
+
+function exportTicketsCSV() {
+  const headers = ['Ticket ID', 'Customer', 'Contact', 'Subject', 'Category', 'Priority', 'Status', 'Assigned To', 'SLA', 'Created At'];
+  const rows = db.tickets.map(t => [t.id, t.customer, t.contactPerson, t.subject, t.category, t.priority, t.status, t.assignedTo, t.slaDeadline, t.createdAt]);
+  downloadCSV('tickets_export.csv', headers, rows);
+}
+
+function exportLeadsCSV() {
+  const headers = ['Lead ID', 'Company', 'Contact', 'Email', 'Deal Value (INR)', 'Stage', 'Source', 'Assigned Rep'];
+  const rows = db.leads.map(l => [l.id, l.company, l.contact, l.email, l.dealValue, l.stage, l.source, l.assignedTo]);
+  downloadCSV('leads_pipeline_export.csv', headers, rows);
+}
+
+function exportDealersCSV() {
+  const headers = ['Dealer ID', 'Company Name', 'Contact', 'Phone', 'Category', 'Region', 'Revenue (INR)', 'Credit Limit', 'Credit Used', 'Status'];
+  const rows = db.dealers.map(d => [d.id, d.name, d.contact, d.phone, d.category, d.region, d.revenue, d.creditLimit, d.creditUsed, d.status]);
+  downloadCSV('dealers_registry_export.csv', headers, rows);
+}
+
+function exportInventoryCSV() {
+  const headers = ['SKU', 'Product Name', 'Category', 'Warehouse', 'In Stock', 'Min Reorder', 'Unit Cost', 'Price'];
+  const rows = db.inventory.map(i => [i.sku, i.name, i.category, i.warehouse, i.inStock, i.minReorder, i.unitCost, i.price]);
+  downloadCSV('inventory_ledger_export.csv', headers, rows);
+}
+
+function exportAuditLogsCSV() {
+  const headers = ['Log ID', 'Timestamp', 'User', 'Role', 'Action', 'Target', 'IP'];
+  const rows = db.auditLogs.map(a => [a.id, a.time, a.user, a.role, a.action, a.target, a.ip]);
+  downloadCSV('security_audit_logs.csv', headers, rows);
+}
+
+// Backup and Restore JSON
+function exportDataBackup() {
+  const jsonStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(db, null, 2));
+  const link = document.createElement('a');
+  link.setAttribute('href', jsonStr);
+  link.setAttribute('download', `orbito_crm_backup_${new Date().toISOString().slice(0, 10)}.json`);
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  showToast('Database backup exported (JSON)', 'success');
+}
+
+function importDataBackup(event) {
+  const file = event.target.files && event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    try {
+      const parsed = JSON.parse(e.target.result);
+      if (parsed.tickets && parsed.leads && parsed.dealers && parsed.inventory) {
+        db = parsed;
+        saveDatabase();
+        showToast('Database successfully restored from JSON backup!', 'success');
+        hidePopoverMenu();
+        render();
+      } else {
+        alert('Invalid Orbito backup file format.');
+      }
+    } catch (err) {
+      alert('Failed to parse JSON file.');
+    }
+  };
+  reader.readAsText(file);
+}
+
+function resetDemoData() {
+  if (confirm('Reset all CRM data to default demonstration state?')) {
+    db = JSON.parse(JSON.stringify(defaultDB));
+    saveDatabase();
+    showToast('Database restored to default demo data', 'info');
+    hidePopoverMenu();
+    render();
+  }
+}
+
+// Toast System
+function showToast(message, type = 'success') {
+  const container = document.querySelector('#toastContainer');
+  if (!container) return;
+
+  const toast = document.createElement('div');
+  toast.className = `toast ${type}`;
+  const icon = type === 'success' ? '✓' : type === 'warning' ? '⚠️' : type === 'error' ? '✗' : 'ℹ';
+  toast.innerHTML = `<span>${icon}</span> <span>${message}</span>`;
+  container.appendChild(toast);
+
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(10px)';
+    toast.style.transition = 'all 0.3s ease';
+    setTimeout(() => toast.remove(), 300);
+  }, 3500);
+}
+
+// Modal Helpers
+function showModal() {
+  document.querySelector('#modal').classList.remove('hidden');
+}
+
+function hideModal() {
+  document.querySelector('#modal').classList.add('hidden');
+}
+
+// Global Command Palette (⌘ K / Ctrl + K)
+function openCommandPalette() {
+  document.querySelector('#cmdPalette').classList.remove('hidden');
+  const input = document.querySelector('#cmdSearchInput');
+  input.value = '';
+  input.focus();
+  renderCmdResults('');
+}
+
+function hideCommandPalette() {
+  document.querySelector('#cmdPalette').classList.add('hidden');
+}
+
+function renderCmdResults(query) {
+  const resultsBox = document.querySelector('#cmdResults');
+  const q = (query || '').toLowerCase().trim();
+
+  const actions = [
+    { title: 'Create Service Ticket', icon: '＋', tag: 'Action', run: () => { hideCommandPalette(); openForm('ticket'); } },
+    { title: 'Create Sales Lead', icon: '＋', tag: 'Action', run: () => { hideCommandPalette(); openForm('lead'); } },
+    { title: 'Add Dealer / Partner', icon: '＋', tag: 'Action', run: () => { hideCommandPalette(); openForm('dealer'); } },
+    { title: 'Stock Inward / Outward', icon: '＋', tag: 'Action', run: () => { hideCommandPalette(); openForm('stock'); } },
+    { title: 'Toggle Dark / Light Theme', icon: '◐', tag: 'Preferences', run: () => { hideCommandPalette(); toggleTheme(); } },
+    { title: 'Switch to Technician Workspace', icon: '🔧', tag: 'Role', run: () => { hideCommandPalette(); switchRole('Technician'); } },
+    { title: 'Switch to Sales Workspace', icon: '💼', tag: 'Role', run: () => { hideCommandPalette(); switchRole('Sales Team'); } },
+    { title: 'Switch to Super Admin Workspace', icon: '🛡️', tag: 'Role', run: () => { hideCommandPalette(); switchRole('Super Admin'); } }
+  ];
+
+  const matchedActions = actions.filter(a => a.title.toLowerCase().includes(q));
+
+  const matchedTickets = db.tickets.filter(t => t.id.toLowerCase().includes(q) || t.customer.toLowerCase().includes(q) || t.subject.toLowerCase().includes(q)).slice(0, 3);
+  const matchedLeads = db.leads.filter(l => l.company.toLowerCase().includes(q) || l.contact.toLowerCase().includes(q)).slice(0, 3);
+  const matchedDealers = db.dealers.filter(d => d.name.toLowerCase().includes(q) || d.contact.toLowerCase().includes(q)).slice(0, 3);
+  const matchedSKUs = db.inventory.filter(i => i.sku.toLowerCase().includes(q) || i.name.toLowerCase().includes(q)).slice(0, 3);
+
+  let html = '';
+
+  if (matchedActions.length > 0) {
+    html += `<div class="cmd-group-label">QUICK ACTIONS</div>`;
+    matchedActions.forEach(a => {
+      html += `
+        <div class="cmd-item" onclick="executeCmdAction('${a.title}')">
+          <div class="cmd-item-left"><span class="cmd-item-icon">${a.icon}</span><b>${a.title}</b></div>
+          <span class="cmd-tag">${a.tag}</span>
+        </div>
+      `;
+    });
+  }
+
+  if (matchedTickets.length > 0) {
+    html += `<div class="cmd-group-label">TICKETS</div>`;
+    matchedTickets.forEach(t => {
+      html += `
+        <div class="cmd-item" onclick="hideCommandPalette();openTicketDetail('${t.id}')">
+          <div class="cmd-item-left"><span class="cmd-item-icon">◫</span><div><b>${t.id} · ${t.customer}</b><small style="display:block;color:var(--muted);">${t.subject}</small></div></div>
+          <span class="badge ${t.status.toLowerCase().replace(' ', '')}">${t.status}</span>
+        </div>
+      `;
+    });
+  }
+
+  if (matchedLeads.length > 0) {
+    html += `<div class="cmd-group-label">SALES LEADS</div>`;
+    matchedLeads.forEach(l => {
+      html += `
+        <div class="cmd-item" onclick="hideCommandPalette();openLeadDetail('${l.id}')">
+          <div class="cmd-item-left"><span class="cmd-item-icon">◇</span><div><b>${l.company}</b><small style="display:block;color:var(--muted);">${formatINR(l.dealValue)} · ${l.contact}</small></div></div>
+          <span class="badge open">${l.stage}</span>
+        </div>
+      `;
+    });
+  }
+
+  if (matchedDealers.length > 0) {
+    html += `<div class="cmd-group-label">DEALERS</div>`;
+    matchedDealers.forEach(d => {
+      html += `
+        <div class="cmd-item" onclick="hideCommandPalette();openDealerDetail('${d.id}')">
+          <div class="cmd-item-left"><span class="cmd-item-icon">♧</span><div><b>${d.name}</b><small style="display:block;color:var(--muted);">${d.region} · ${d.category}</small></div></div>
+          <span class="badge ${d.status.toLowerCase()}">${d.status}</span>
+        </div>
+      `;
+    });
+  }
+
+  if (matchedSKUs.length > 0) {
+    html += `<div class="cmd-group-label">INVENTORY</div>`;
+    matchedSKUs.forEach(i => {
+      html += `
+        <div class="cmd-item" onclick="hideCommandPalette();quickStockAdjust('${i.sku}')">
+          <div class="cmd-item-left"><span class="cmd-item-icon">▦</span><div><b>${i.sku} — ${i.name}</b><small style="display:block;color:var(--muted);">${i.inStock} units in stock</small></div></div>
+          <span class="badge ${i.inStock <= i.minReorder ? 'critical' : 'resolved'}">${i.inStock <= i.minReorder ? 'Reorder' : 'Adequate'}</span>
+        </div>
+      `;
+    });
+  }
+
+  if (!html) {
+    html = `<div style="padding:24px;text-align:center;color:var(--muted);">No matching commands or records found.</div>`;
+  }
+
+  resultsBox.innerHTML = html;
+}
+
+function executeCmdAction(title) {
+  hideCommandPalette();
+  if (title === 'Create Service Ticket') openForm('ticket');
+  else if (title === 'Create Sales Lead') openForm('lead');
+  else if (title === 'Add Dealer / Partner') openForm('dealer');
+  else if (title === 'Stock Inward / Outward') openForm('stock');
+  else if (title === 'Toggle Dark / Light Theme') toggleTheme();
+  else if (title.includes('Technician')) switchRole('Technician');
+  else if (title.includes('Sales')) switchRole('Sales Team');
+  else if (title.includes('Super Admin')) switchRole('Super Admin');
+}
+
+// Notifications Panel
+function renderNotifications() {
+  const list = document.querySelector('#notifList');
+  const badge = document.querySelector('#notifBadge');
+  if (!list || !badge) return;
+
+  const unreadCount = db.notifications.filter(n => !n.read).length;
+  badge.classList.toggle('hidden', unreadCount === 0);
+
+  list.innerHTML = db.notifications.length === 0 ? `
+    <div style="padding:20px;text-align:center;color:var(--muted);font-size:12px;">No notifications.</div>
+  ` : db.notifications.map(n => `
+    <div class="notif-item ${n.read ? '' : 'unread'}" onclick="markNotifRead('${n.id}')">
+      <b>${n.title}</b>
+      <div>${n.message}</div>
+      <small>${n.time}</small>
+    </div>
+  `).join('');
+}
+
+function toggleNotifMenu() {
+  const menu = document.querySelector('#notifMenu');
+  menu.classList.toggle('hidden');
+}
+
+function markNotifRead(id) {
+  const n = db.notifications.find(x => x.id === id);
+  if (n) {
+    n.read = true;
+    saveDatabase();
+    renderNotifications();
+  }
+}
+
+function markAllNotifsRead() {
+  db.notifications.forEach(n => n.read = true);
+  saveDatabase();
+  renderNotifications();
+  showToast('All notifications marked as read', 'info');
+}
+
+// Profile & Role Switching
+function toggleProfileMenu() {
+  const menu = document.querySelector('#profileMenu');
+  menu.classList.toggle('hidden');
+}
+
+function hidePopoverMenu() {
+  const menu = document.querySelector('#profileMenu');
+  if (menu) menu.classList.add('hidden');
+}
+
+function switchRole(roleName) {
+  state.role = roleName;
+  state.view = roleName === 'Technician' ? 'My Day' : roleName === 'Master Admin' ? 'Platform Overview' : 'Overview';
+  const roleEmailMap = {
+    'Master Admin': 'master@orbito.test',
+    'Super Admin': 'super@acme.test',
+    'Admin': 'admin@acme.test',
+    'Sales Team': 'sales@acme.test',
+    'Technician': 'tech@acme.test'
+  };
+  state.currentUser = accounts[roleEmailMap[roleName]];
+  hidePopoverMenu();
+  showToast(`Switched to ${roleName} workspace`, 'info');
+  render();
+}
+
+function openHelpModal() {
+  const content = document.querySelector('#modalContent');
+  content.innerHTML = `
+    <h2>💡 Orbito CRM Quick Reference</h2>
+    <p>Enterprise workspace guide & power user shortcuts.</p>
+    <div style="font-size:13px;line-height:1.7;">
+      <b>Keyboard Shortcuts:</b>
+      <ul style="margin:6px 0 16px 20px;">
+        <li><kbd>⌘ K</kbd> or <kbd>Ctrl + K</kbd> — Open Global Search & Command Palette</li>
+        <li><kbd>ESC</kbd> — Close any open modal or drawer</li>
+      </ul>
+
+      <b>Role Capabilities:</b>
+      <ul style="margin:6px 0 16px 20px;">
+        <li><b>Master Admin:</b> Multi-tenant control plane, customer companies, MRR, subscriptions.</li>
+        <li><b>Super Admin:</b> Full enterprise operations, complaint tickets, SLA, dealers, inventory, team.</li>
+        <li><b>Sales Team:</b> Pipeline progression, Kanban drag-and-drop, dealer lead submissions.</li>
+        <li><b>Technician:</b> Daily visit route, GPS check-in, parts requisition, service updates.</li>
+      </ul>
+
+      <b>Data & Persistence:</b>
+      <p>All CRM operations, stock changes, new tickets, and lead stages are automatically persisted in your browser's <code>localStorage</code>. You can export a full JSON backup or reset demo data anytime from the account menu (•••).</p>
+    </div>
+    <div class="modal-actions">
+      <button class="primary-btn" onclick="hideModal()">Got it</button>
+    </div>
+  `;
+  showModal();
+}
+
+// Dark Mode Theme Toggle
+function toggleTheme() {
+  document.body.classList.toggle('dark');
+  const isDark = document.body.classList.contains('dark');
+  try {
+    localStorage.setItem('orbito_theme', isDark ? 'dark' : 'light');
+  } catch (e) {}
+}
+
+function loadTheme() {
+  try {
+    const saved = localStorage.getItem('orbito_theme');
+    if (saved === 'dark') document.body.classList.add('dark');
+  } catch (e) {}
+}
+
+// Main View Router & Render Controller
+function render() {
+  document.querySelector('#loginView').classList.toggle('hidden', state.authenticated);
+  document.querySelector('#appShell').classList.toggle('hidden', !state.authenticated);
+
+  if (!state.authenticated) return;
+
+  // Master Admin delegates to master.js control plane
+  if (state.role === 'Master Admin' && typeof renderMaster === 'function') {
+    renderMaster();
+    return;
+  }
+
+  // Restore regular tenant workspace branding
+  const wsName = document.querySelector('#workspaceName');
+  const wsDesc = document.querySelector('#workspaceDesc');
+  const wsAvatar = document.querySelector('#workspaceAvatar');
+  if (wsName) wsName.textContent = 'Acme India';
+  if (wsDesc) wsDesc.textContent = 'Enterprise workspace';
+  if (wsAvatar) wsAvatar.textContent = 'AK';
+
+  // Update profile label
+  document.querySelector('#roleLabel').textContent = state.role;
+  const uName = state.currentUser ? state.currentUser.name : state.role;
+  document.querySelector('#userName').textContent = uName;
+  document.querySelector('#userAvatar').textContent = uName.split(' ').map(x => x[0]).join('').slice(0, 2);
+
+  // Render navigation
+  nav();
+
+  // Render Page Content
+  const v = state.view;
+  let body = '';
+
+  if (v === 'Overview' || v === 'My Day') {
+    body = overview();
+  } else if (v === 'Tickets' || v === 'Assigned Tickets') {
+    body = ticketPage();
+  } else if (v === 'Leads' || v === 'My Leads') {
+    body = leadsPage();
+  } else if (v === 'Dealers') {
+    body = dealersPage();
+  } else if (v === 'Inventory' || v === 'Parts Requests') {
+    body = inventoryPage();
+  } else if (v === 'Reports') {
+    body = reportsPage();
+  } else if (v === 'Team & Roles' || v === 'Team') {
+    body = teamPage();
+  } else if (v === 'Audit Logs') {
+    body = auditLogsPage();
+  } else if (v === 'Settings') {
+    body = settingsPage();
+  } else {
+    body = overview();
+  }
+
+  document.querySelector('#page').innerHTML = body;
+  document.querySelector('#sidebar').classList.remove('open');
+  renderNotifications();
+}
+
+function goto(viewName) {
+  state.view = viewName;
+  render();
+}
+
+function logout() {
+  state.authenticated = false;
+  document.querySelector('#loginPassword').value = '';
+  hidePopoverMenu();
+  render();
+}
+
+// Event Listeners Initialization
+document.addEventListener('DOMContentLoaded', () => {
+  loadTheme();
+
+  // Login Form Submission
+  document.querySelector('#loginForm').onsubmit = (e) => {
+    e.preventDefault();
+    const email = document.querySelector('#loginEmail').value.trim().toLowerCase();
+    const pass = document.querySelector('#loginPassword').value;
+    const acc = accounts[email];
+
+    if (!acc || acc.password !== pass) {
+      document.querySelector('#loginError').classList.remove('hidden');
+      return;
+    }
+
+    document.querySelector('#loginError').classList.add('hidden');
+    state.role = acc.role;
+    state.currentUser = acc;
+    state.view = acc.role === 'Technician' ? 'My Day' : acc.role === 'Master Admin' ? 'Platform Overview' : 'Overview';
+    state.authenticated = true;
+    logAudit('Signed in successfully', acc.role);
+    render();
+  };
+
+  // 1-Click Demo Login Buttons
+  document.querySelectorAll('[data-email]').forEach(btn => {
+    btn.onclick = () => {
+      document.querySelector('#loginEmail').value = btn.dataset.email;
+      document.querySelector('#loginPassword').value = btn.dataset.pass;
+      document.querySelector('#loginForm').requestSubmit();
+    };
+  });
+
+  // Global Header Actions
+  document.querySelector('#newBtn').onclick = () => {
+    if (state.view.includes('Lead')) openForm('lead');
+    else if (state.view === 'Dealers') openForm('dealer');
+    else if (state.view.includes('Inventory') || state.view === 'Parts Requests') openForm('stock');
+    else openForm('ticket');
+  };
+
+  document.querySelector('#globalSearchBtn').onclick = openCommandPalette;
+  document.querySelector('#cmdSearchInput').oninput = (e) => renderCmdResults(e.target.value);
+  document.querySelector('#themeBtn').onclick = toggleTheme;
+  document.querySelector('#notifBtn').onclick = toggleNotifMenu;
+  document.querySelector('#markAllReadBtn').onclick = markAllNotifsRead;
+  document.querySelector('#profileBtn').onclick = toggleProfileMenu;
+  document.querySelector('#helpBtn').onclick = openHelpModal;
+  document.querySelector('#menuBtn').onclick = () => document.querySelector('#sidebar').classList.toggle('open');
+  document.querySelector('#closeModal').onclick = hideModal;
+
+  // Keyboard Shortcuts (Cmd+K / Ctrl+K and ESC)
+  window.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      openCommandPalette();
+    } else if (e.key === 'Escape') {
+      hideModal();
+      hideCommandPalette();
+      hidePopoverMenu();
+      const notifMenu = document.querySelector('#notifMenu');
+      if (notifMenu) notifMenu.classList.add('hidden');
+    }
+  });
+
+  // Close modals when clicking backdrop
+  document.querySelector('#modal').onclick = (e) => {
+    if (e.target.id === 'modal') hideModal();
+  };
+  document.querySelector('#cmdPalette').onclick = (e) => {
+    if (e.target.id === 'cmdPalette') hideCommandPalette();
+  };
+
+  // Close menus when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('#profileBtn') && !e.target.closest('#profileMenu')) {
+      hidePopoverMenu();
+    }
+    if (!e.target.closest('#notifBtn') && !e.target.closest('#notifMenu')) {
+      const notif = document.querySelector('#notifMenu');
+      if (notif) notif.classList.add('hidden');
+    }
+  });
+
+  render();
+});
+
+// Expose Globals to Window
+window.goto = goto;
+window.openForm = openForm;
+window.openTicketDetail = openTicketDetail;
+window.openLeadDetail = openLeadDetail;
+window.openDealerDetail = openDealerDetail;
+window.approveDealer = approveDealer;
+window.openStockInwardModal = openStockInwardModal;
+window.quickStockAdjust = quickStockAdjust;
+window.exportTicketsCSV = exportTicketsCSV;
+window.exportLeadsCSV = exportLeadsCSV;
+window.exportDealersCSV = exportDealersCSV;
+window.exportInventoryCSV = exportInventoryCSV;
+window.exportAuditLogsCSV = exportAuditLogsCSV;
+window.exportDataBackup = exportDataBackup;
+window.importDataBackup = importDataBackup;
+window.resetDemoData = resetDemoData;
+window.switchRole = switchRole;
+window.logout = logout;
+window.showToast = showToast;
+window.handleDragStart = handleDragStart;
+window.handleDragOver = handleDragOver;
+window.handleDragLeave = handleDragLeave;
+window.handleDrop = handleDrop;
+window.executeCmdAction = executeCmdAction;
+window.hideModal = hideModal;
+window.hideCommandPalette = hideCommandPalette;
+
+
+
+// Orbito CRM v2.0 - Platform-Level Multi-Tenant Control Plane
+
+// Initial Company Tenants
+let platformCompanies = [
+  { id: 'CMP-101', name: 'Acme India', plan: 'Enterprise', branches: 5, users: 384, status: 'Active', mrr: 480000, region: 'West (HQ Mumbai)', renewal: '2027-03-31' },
+  { id: 'CMP-102', name: 'Vector Industries', plan: 'Professional', branches: 2, users: 116, status: 'Active', mrr: 180000, region: 'North (Delhi)', renewal: '2026-11-15' },
+  { id: 'CMP-103', name: 'Nova Industrial Systems', plan: 'Starter', branches: 1, users: 28, status: 'Onboarding', mrr: 45000, region: 'South (Bangalore)', renewal: '2026-12-01' },
+  { id: 'CMP-104', name: 'Sapphire Equipments', plan: 'Enterprise', branches: 4, users: 260, status: 'Active', mrr: 380000, region: 'West (Pune)', renewal: '2027-01-20' },
+  { id: 'CMP-105', name: 'Kalyani Tech Works', plan: 'Professional', branches: 3, users: 142, status: 'Active', mrr: 210000, region: 'East (Kolkata)', renewal: '2027-02-10' }
+];
+
+function companyTable(compact = false) {
+  const displayList = compact ? platformCompanies.slice(0, 4) : platformCompanies;
+
+  return `
+    <div class="card table-card">
+      <div class="card-head">
+        <div>
+          <h2>${compact ? 'Active Customer Companies' : 'Managed Enterprise Tenants'}</h2>
+          <span class="subtitle">Every company is a strictly isolated tenant with sandboxed users, data, and branches.</span>
+        </div>
+        <button class="primary-btn" onclick="openAddCompanyModal()">＋ Add Company</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Tenant ID</th>
+              <th>Company Name</th>
+              <th>Subscription Plan</th>
+              <th>Branches</th>
+              <th>Active Users</th>
+              <th>Monthly MRR</th>
+              <th>Status</th>
+              <th style="text-align:right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${displayList.map(c => `
+              <tr>
+                <td style="font-family:monospace;font-weight:700;color:var(--blue);">${c.id}</td>
+                <td>
+                  <b>${c.name}</b>
+                  <small style="display:block;color:var(--muted);">${c.region}</small>
+                </td>
+                <td><span class="badge ${c.plan === 'Enterprise' ? 'resolved' : c.plan === 'Professional' ? 'open' : 'low'}">${c.plan}</span></td>
+                <td><b>${c.branches}</b></td>
+                <td>${c.users} seats</td>
+                <td><b style="color:var(--green);">${formatINR(c.mrr)}</b></td>
+                <td>
+                  <span class="badge ${c.status === 'Active' ? 'resolved' : c.status === 'Onboarding' ? 'pending' : 'critical'}">
+                    ${c.status}
+                  </span>
+                </td>
+                <td style="text-align:right;">
+                  <button class="outline-btn" style="padding:4px 8px;font-size:11px;" onclick="openCompanyConfigModal('${c.id}')">Configure</button>
+                </td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+
+function platformOverview() {
+  const totalMRR = platformCompanies.reduce((s, c) => s + c.mrr, 0);
+  const totalUsers = platformCompanies.reduce((s, c) => s + c.users, 0);
+
+  return `
+    ${pageTop('Platform Command Center', 'Real-time multi-tenant health, cross-organization throughput, and telemetry.')}
+    <div class="metrics">
+      <article class="metric">
+        <div class="metric-head">Managed Companies <span class="metric-icon">▣</span></div>
+        <div class="metric-value">${platformCompanies.length}</div>
+        <div class="trend">↑ 2 onboarded this month</div>
+      </article>
+      <article class="metric">
+        <div class="metric-head">Platform Users <span class="metric-icon">♙</span></div>
+        <div class="metric-value">${totalUsers.toLocaleString()}</div>
+        <div class="trend">↑ 148 new seats</div>
+      </article>
+      <article class="metric">
+        <div class="metric-head">Monthly Recurring (MRR) <span class="metric-icon">↗</span></div>
+        <div class="metric-value">${formatINR(totalMRR)}</div>
+        <div class="trend">↑ 18.6% vs last month</div>
+      </article>
+      <article class="metric">
+        <div class="metric-head">Platform Health <span class="metric-icon">✓</span></div>
+        <div class="metric-value">99.99%</div>
+        <div class="trend">All microservices operational</div>
+      </article>
+    </div>
+
+    <div class="dashboard-grid">
+      ${chart()}
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <h2>Tenant Health & Alerts</h2>
+            <span class="subtitle">Real-time status across regions</span>
+          </div>
+          <button class="link-btn" onclick="platformView('Companies')">Manage →</button>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <b>4 Enterprise Tenants Healthy</b>
+            <small>Database replication, audit queues, and backups 100% nominal.</small>
+          </div>
+          <div class="timeline-item">
+            <b>1 Onboarding in Verification</b>
+            <small>Nova Industrial Systems · GST and compliance docs pending review.</small>
+          </div>
+          <div class="timeline-item">
+            <b>Automated Database Backup</b>
+            <small>Completed 45 minutes ago across all isolated tenant schemas.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    ${companyTable(true)}
+  `;
+}
+
+function platformSubscriptionsPage() {
+  return `
+    ${pageTop('Platform Subscriptions & Billing Tiers', 'Manage enterprise licensing, feature flags, and MRR.')}
+    <div class="metrics">
+      <article class="metric">
+        <div class="metric-head">Enterprise Tier <span class="metric-icon">👑</span></div>
+        <div class="metric-value">02</div>
+        <div class="trend">Unlimited branches & 24/7 SLA</div>
+      </article>
+      <article class="metric">
+        <div class="metric-head">Professional Tier <span class="metric-icon">💼</span></div>
+        <div class="metric-value">02</div>
+        <div class="trend">Up to 5 branches</div>
+      </article>
+      <article class="metric">
+        <div class="metric-head">Starter Tier <span class="metric-icon">🌱</span></div>
+        <div class="metric-value">01</div>
+        <div class="trend">Single branch setup</div>
+      </article>
+      <article class="metric">
+        <div class="metric-head">Net Retention (NDR) <span class="metric-icon">↗</span></div>
+        <div class="metric-value">124%</div>
+        <div class="trend">↑ 6% year-over-year</div>
+      </article>
+    </div>
+
+    ${companyTable(false)}
+  `;
+}
+
+function platformUsersPage() {
+  return `
+    ${pageTop('Cross-Tenant Administrators', 'Directory of authorized tenant Super Admins and cloud operations staff.')}
+    <div class="card table-card">
+      <div class="card-head">
+        <h2>Tenant Primary Administrators</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Admin Name</th>
+              <th>Email</th>
+              <th>Company Tenant</th>
+              <th>Assigned Tier</th>
+              <th>2FA Status</th>
+              <th>Last Active</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Dhanesh Kaytha</b></td>
+              <td>super@acme.test</td>
+              <td>Acme India</td>
+              <td><span class="badge resolved">Enterprise</span></td>
+              <td><span class="badge resolved">Enabled</span></td>
+              <td>Just now</td>
+            </tr>
+            <tr>
+              <td><b>Rajesh Singhal</b></td>
+              <td>admin@vectorind.com</td>
+              <td>Vector Industries</td>
+              <td><span class="badge open">Professional</span></td>
+              <td><span class="badge resolved">Enabled</span></td>
+              <td>2 hours ago</td>
+            </tr>
+            <tr>
+              <td><b>Deepak Nova</b></td>
+              <td>admin@novasystems.com</td>
+              <td>Nova Industrial Systems</td>
+              <td><span class="badge low">Starter</span></td>
+              <td><span class="badge pending">Pending</span></td>
+              <td>Yesterday</td>
+            </tr>
+            <tr>
+              <td><b>Gaurav Taneja</b></td>
+              <td>gaurav@sapphireequip.com</td>
+              <td>Sapphire Equipments</td>
+              <td><span class="badge resolved">Enterprise</span></td>
+              <td><span class="badge resolved">Enabled</span></td>
+              <td>3 hours ago</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+
+function openAddCompanyModal() {
+  const content = document.querySelector('#modalContent');
+  content.innerHTML = `
+    <h2>Onboard New Enterprise Tenant</h2>
+    <p>Provision an isolated company workspace with custom plan limits.</p>
+    <form id="addCompanyForm">
+      <div class="field">
+        <label>Company Legal Name *</label>
+        <input id="cmpName" placeholder="e.g. Bharat Heavy Machinery Ltd" required autofocus>
+      </div>
+      <div class="field-grid">
+        <div class="field">
+          <label>Subscription Tier</label>
+          <select id="cmpPlan">
+            <option>Enterprise</option>
+            <option selected>Professional</option>
+            <option>Starter</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Region</label>
+          <select id="cmpRegion">
+            <option>West (Mumbai / Pune)</option>
+            <option>North (Delhi NCR)</option>
+            <option>South (Bangalore / Chennai)</option>
+            <option>East (Kolkata)</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-grid">
+        <div class="field">
+          <label>Branches Allowed</label>
+          <input id="cmpBranches" type="number" value="3" required>
+        </div>
+        <div class="field">
+          <label>User Seat License</label>
+          <input id="cmpUsers" type="number" value="50" required>
+        </div>
+      </div>
+      <div class="field">
+        <label>Monthly MRR (₹ INR)</label>
+        <input id="cmpMrr" type="number" value="150000" required>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="outline-btn" onclick="hideModal()">Cancel</button>
+        <button type="submit" class="primary-btn">Provision Tenant</button>
+      </div>
+    </form>
+  `;
+  showModal();
+
+  document.querySelector('#addCompanyForm').onsubmit = (e) => {
+    e.preventDefault();
+    const newCmp = {
+      id: 'CMP-' + (100 + platformCompanies.length + 1),
+      name: document.querySelector('#cmpName').value,
+      plan: document.querySelector('#cmpPlan').value,
+      region: document.querySelector('#cmpRegion').value,
+      branches: Number(document.querySelector('#cmpBranches').value) || 1,
+      users: Number(document.querySelector('#cmpUsers').value) || 10,
+      mrr: Number(document.querySelector('#cmpMrr').value) || 50000,
+      status: 'Active',
+      renewal: '2027-09-30'
+    };
+    platformCompanies.unshift(newCmp);
+    logAudit('Provisioned new tenant workspace', newCmp.name);
+    showToast(`Tenant "${newCmp.name}" provisioned successfully!`, 'success');
+    hideModal();
+    renderMaster();
+  };
+}
+
+function openCompanyConfigModal(cmpId) {
+  const c = platformCompanies.find(x => x.id === cmpId);
+  if (!c) return;
+
+  const content = document.querySelector('#modalContent');
+  content.innerHTML = `
+    <h2>${c.name}</h2>
+    <p>Tenant ID: <b>${c.id}</b> · Subscription: <b>${c.plan}</b></p>
+    <div class="field-grid">
+      <div class="field">
+        <label>Tenant Status</label>
+        <select id="edCmpStatus">
+          <option ${c.status === 'Active' ? 'selected' : ''}>Active</option>
+          <option ${c.status === 'Onboarding' ? 'selected' : ''}>Onboarding</option>
+          <option ${c.status === 'Suspended' ? 'selected' : ''}>Suspended</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Subscription Plan</label>
+        <select id="edCmpPlan">
+          <option ${c.plan === 'Enterprise' ? 'selected' : ''}>Enterprise</option>
+          <option ${c.plan === 'Professional' ? 'selected' : ''}>Professional</option>
+          <option ${c.plan === 'Starter' ? 'selected' : ''}>Starter</option>
+        </select>
+      </div>
+    </div>
+    <div class="field-grid">
+      <div class="field">
+        <label>Branches Limit</label>
+        <input id="edCmpBranches" type="number" value="${c.branches}">
+      </div>
+      <div class="field">
+        <label>Monthly MRR (₹ INR)</label>
+        <input id="edCmpMrr" type="number" value="${c.mrr}">
+      </div>
+    </div>
+    <div class="modal-actions" style="justify-content:space-between;">
+      <button type="button" class="danger-btn" onclick="deleteCompany('${c.id}')">Decommission</button>
+      <div>
+        <button type="button" class="outline-btn" onclick="hideModal()">Cancel</button>
+        <button type="button" class="primary-btn" onclick="saveCompanyConfig('${c.id}')">Save Changes</button>
+      </div>
+    </div>
+  `;
+  showModal();
+}
+
+function saveCompanyConfig(cmpId) {
+  const c = platformCompanies.find(x => x.id === cmpId);
+  if (c) {
+    c.status = document.querySelector('#edCmpStatus').value;
+    c.plan = document.querySelector('#edCmpPlan').value;
+    c.branches = Number(document.querySelector('#edCmpBranches').value) || c.branches;
+    c.mrr = Number(document.querySelector('#edCmpMrr').value) || c.mrr;
+    logAudit('Updated tenant configuration', c.name);
+    showToast(`Configuration saved for ${c.name}`, 'success');
+    hideModal();
+    renderMaster();
+  }
+}
+
+function deleteCompany(cmpId) {
+  if (confirm('Are you sure you want to decommission this company tenant?')) {
+    platformCompanies = platformCompanies.filter(x => x.id !== cmpId);
+    logAudit('Decommissioned company tenant', cmpId);
+    showToast('Tenant decommissioned', 'info');
+    hideModal();
+    renderMaster();
+  }
+}
+
+function renderMaster() {
+  document.querySelector('#loginView').classList.add('hidden');
+  document.querySelector('#appShell').classList.remove('hidden');
+
+  document.querySelector('#roleLabel').textContent = 'Master Admin';
+  document.querySelector('#userName').textContent = 'Master Admin';
+  document.querySelector('#userAvatar').textContent = 'MA';
+
+  const wsName = document.querySelector('#workspaceName');
+  const wsDesc = document.querySelector('#workspaceDesc');
+  const wsAvatar = document.querySelector('#workspaceAvatar');
+  if (wsName) wsName.textContent = 'Orbito Cloud';
+  if (wsDesc) wsDesc.textContent = 'Multi-tenant control plane';
+  if (wsAvatar) wsAvatar.textContent = 'OC';
+
+  const navItems = ['Platform Overview', 'Companies', 'Platform Analytics', 'Subscriptions', 'Platform Users', 'Audit Logs'];
+  const navIcons = ['⌂', '▣', '◒', '◈', '♙', '◷'];
+
+  document.querySelector('#nav').innerHTML = `
+    <div class="nav-group">PLATFORM CONTROL</div>
+    ${navItems.map((item, i) => `
+      <button class="nav-item ${state.view === item || (i === 0 && state.view === 'Overview') ? 'active' : ''}" onclick="platformView('${item}')">
+        <span class="nav-icon">${navIcons[i]}</span>
+        <span>${item}</span>
+      </button>
+    `).join('')}
+    <div class="nav-group">WORKSPACE SWITCH</div>
+    <button class="nav-item" onclick="switchRole('Super Admin')"><span class="nav-icon">🛡️</span>Enter Acme India CRM</button>
+    <div class="nav-group">ACCOUNT</div>
+    <button class="nav-item" onclick="platformSignOut()"><span class="nav-icon">⇥</span>Sign out</button>
+  `;
+
+  let pageHtml = '';
+  if (state.view === 'Companies') {
+    pageHtml = `${pageTop('Customer Companies & Tenants', 'Create, onboard, and manage isolated enterprise organizations.')} ${companyTable(false)}`;
+  } else if (state.view === 'Platform Analytics') {
+    pageHtml = `${pageTop('Platform Analytics', 'Cross-tenant performance, MRR throughput, and user growth.')}<div class="dashboard-grid">${chart()}${statusWidget()}</div>`;
+  } else if (state.view === 'Subscriptions') {
+    pageHtml = platformSubscriptionsPage();
+  } else if (state.view === 'Platform Users') {
+    pageHtml = platformUsersPage();
+  } else if (state.view === 'Audit Logs') {
+    pageHtml = auditLogsPage();
+  } else {
+    pageHtml = platformOverview();
+  }
+
+  document.querySelector('#page').innerHTML = pageHtml;
+  document.querySelector('#sidebar').classList.remove('open');
+  renderNotifications();
+}
+
+window.platformView = (view) => {
+  state.view = view;
+  renderMaster();
+};
+
+window.platformSignOut = () => {
+  state.authenticated = false;
+  state.view = 'Overview';
+  render();
+};
+
+window.openAddCompanyModal = openAddCompanyModal;
+window.openCompanyConfigModal = openCompanyConfigModal;
+window.saveCompanyConfig = saveCompanyConfig;
+window.deleteCompany = deleteCompany;
+window.renderMaster = renderMaster;
+
+
+
+// Immediate Safe Initialization
+function initOrbitoApp() {
+  if (typeof loadTheme === 'function') loadTheme();
+  if (typeof render === 'function') render();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initOrbitoApp);
+} else {
+  initOrbitoApp();
+}
+    </script>
   </body>
 </html>
